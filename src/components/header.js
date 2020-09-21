@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useState, useEffect } from "react"
 import { useSpring, animated } from 'react-spring';
+import MenuList from './menuList';
 import classes from "./header.module.scss";
 
 
@@ -37,13 +38,7 @@ const Header = ({ siteTitle }) => {
             <span className={ classes.hamburgerInner }></span>
           </span>
         </button>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/">Services</Link></li>
-          <li><Link to="/">Projects</Link></li>
-          <li><Link to="/">About Us</Link></li>
-          <li><Link to="/">Contact Us</Link></li>
-        </ul>
+        <MenuList toggled={ clicked } />
       </nav>
     </header>
   );

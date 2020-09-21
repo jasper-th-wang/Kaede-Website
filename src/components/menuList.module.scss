@@ -1,0 +1,32 @@
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited,
+a:hover,
+a:active {
+  color: black;
+}
+
+ul {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style-type: none;
+  text-align: center;
+  text-decoration: none;
+
+  li {
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+}
