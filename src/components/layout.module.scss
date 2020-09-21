@@ -1,0 +1,14 @@
+@import '../styles/globalVar.scss';
+
+.grid-container {
+  display: grid;
+  grid-template-rows: 10% 80%;
+}
+
+header {
+  display: grid;
+  grid-template-columns:80% 20%;
+  height: 5rem;
+  background-color: $primary-grey;
+
+}
