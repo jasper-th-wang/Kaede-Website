@@ -28,18 +28,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className={ classes.gridContainer }>
-      <header>
-        <img src="" alt="" />
-        <nav>
-          <ul>
-            <li>Home</li>
-            <li>Services</li>
-            <li>Projects</li>
-            <li>About Us</li>
-            <li>Contact Us</li>
-          </ul>
-        </nav>
-      </header>
+      <Header siteTitle={ data.site.siteMetadata.title } />
       <div>
         <main>
           { children }

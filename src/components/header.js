@@ -1,35 +1,54 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import React, { useState, useEffect } from "react"
+import { useSpring, animated } from 'react-spring';
+import classes from "./header.module.scss";
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+
+const Header = ({ siteTitle }) => {
+
+  const [clicked, setClicked] = useState(false);
+
+  const toggleMenu = () => {
+    setClicked(prevState => !prevState);
+  }
+
+  const expandMenu = useSpring({
+    opacity: clicked ? 1 : 0,
+    height: clicked ? '100vh' : '1rem',
+    width: clicked ? '100vw' : '1rem',
+  })
+
+  return (
+    <header>
+      <img src="" alt={ siteTitle } />
+      <nav>
+        <animated.div className={ classes.menuBackground } style={ expandMenu }>
+        </animated.div>
+        <button
+          className={
+            `${ classes.hamburger } 
+            ${ classes.hamburgerCollapse } 
+            ${ clicked ? classes.isActive : null }
+            ` }
+          type="button"
+          onClick={ toggleMenu }>
+          <span className={ classes.hamburgerBox }>
+            <span className={ classes.hamburgerInner }></span>
+          </span>
+        </button>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/">Services</Link></li>
+          <li><Link to="/">Projects</Link></li>
+          <li><Link to="/">About Us</Link></li>
+          <li><Link to="/">Contact Us</Link></li>
+        </ul>
+      </nav>
+    </header>
+  );
+
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
