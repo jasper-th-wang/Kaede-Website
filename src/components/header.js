@@ -1,9 +1,11 @@
-import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React, { useState, useEffect } from "react"
-import { useSpring, animated } from 'react-spring';
+import React, { useState } from "react"
+import { useSpring, animated, config } from 'react-spring';
 import MenuList from './menuList';
 import classes from "./header.module.scss";
+import logo from '../assets/images/logo/kaede_logo.png';
+import logoLeaf from '../assets/images/logo/kaede_logo_leaf.png';
+
 
 
 const Header = ({ siteTitle }) => {
@@ -15,14 +17,20 @@ const Header = ({ siteTitle }) => {
   }
 
   const expandMenu = useSpring({
-    opacity: clicked ? 1 : 0,
+    config: config.molasses,
+    delay: clicked ? 0 : 300,
+    opacity: clicked ? 1 : 0.95,
     height: clicked ? '100vh' : '1rem',
     width: clicked ? '100vw' : '1rem',
   })
 
   return (
-    <header>
-      <img src="" alt={ siteTitle } />
+    <header className={ classes.header }>
+      <picture>
+        <source media="(max-width: 768px)" srcSet={ logo } />
+        <source media="(min-width: 767px)" srcSet={ logoLeaf } />
+        <img src={ logo } alt="Kaede Construction" className={ classes.logo } />
+      </picture>
       <nav>
         <animated.div className={ classes.menuBackground } style={ expandMenu }>
         </animated.div>
@@ -38,7 +46,7 @@ const Header = ({ siteTitle }) => {
             <span className={ classes.hamburgerInner }></span>
           </span>
         </button>
-        <MenuList toggled={ clicked } />
+        <MenuList toggled={ clicked } toggleMenuHandler={ toggleMenu } />
       </nav>
     </header>
   );

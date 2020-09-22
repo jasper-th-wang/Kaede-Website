@@ -1,14 +1,20 @@
 @import "../styles/globalVar.scss";
 
-header {
+.header {
   display: flex;
   justify-content: space-between;
   height: 4rem;
   background-color: $primary-grey;
+  align-items: center;
+  nav {
+    margin-left: $mobile-margin;
+  }
 }
-nav {
-  align-self: center;
-  margin-left: $mobile-margin;
+
+.logo {
+  width: 2rem;
+  height: auto;
+  padding-left: $mobile-margin;
 }
 
 .menuBackground {

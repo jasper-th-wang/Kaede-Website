@@ -1,32 +1,39 @@
+@import "../styles/globalVar.scss";
+
 ul,
 li {
   padding: 0;
   margin: 0;
 }
 
-a {
-  text-decoration: none;
-}
-
-a:visited,
-a:hover,
-a:active {
-  color: black;
-}
-
-ul {
-  display: block;
+.menu-list {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   list-style-type: none;
   text-align: center;
   text-decoration: none;
 
+  a,
+  a:visited,
+  a:hover,
+  a:active {
+    text-decoration: none;
+    color: currentColor;
+  }
+
   li {
-    &:not(:last-child) {
-      margin-bottom: 2rem;
-    }
+    font-size: 1.125em; /* 18px*/
+    font-weight: 500;
+    color: $primary-grey;
+    overflow: hidden;
+    // height: 2rem;
+
+    margin-bottom: 3rem;
+  }
+
+  div {
+    overflow: hidden;
   }
 }

@@ -10,7 +10,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${ __dirname }/src/images`,
+        path: `${ __dirname }/src/assets/images`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -31,5 +31,13 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: `${ __dirname }/src/assets/svgs`,
+        }
+      }
+    },
   ],
 }
