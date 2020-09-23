@@ -1,0 +1,47 @@
+@import "../styles/globalVar.scss";
+
+.hero {
+  position: relative;
+  &-img {
+    height: 53vh;
+    // object-fit: cover;
+    filter: contrast(75%);
+  }
+
+  &-text {
+    text-align: right;
+    position: absolute;
+    bottom: $mobile-margin;
+    right: 0;
+    margin-right: $mobile-margin;
+    color: #ffffff;
+
+    h2 {
+      font-size: 2.7rem;
+      margin-top: 0;
+      margin-bottom: 0;
+      // line-height: 1.15;
+      font-weight: 900;
+    }
+    h3 {
+      font-size: 2rem;
+      font-weight: 300;
+      margin-top: 0;
+      margin-bottom: 0rem;
+    }
+
+    span {
+      color: $primary-grey;
+      font-weight: 500;
+    }
+  }
+}
+
+.introSection {
+  padding: 3rem 0 3rem 0;
+  margin: 0 $mobile-margin 0 $mobile-margin;
+  // background-image: url(../assets/svgs/leaf.svg);
+  h2 {
+    display: none;
+  }
+}

@@ -8,13 +8,15 @@
   align-items: center;
   nav {
     margin-left: $mobile-margin;
+    z-index: 1000;
   }
 }
 
 .logo {
-  width: 2rem;
+  width: 2.6rem;
   height: auto;
   padding-left: $mobile-margin;
+  filter: invert(100%);
 }
 
 .menuBackground {

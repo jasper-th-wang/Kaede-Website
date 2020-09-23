@@ -1,6 +1,6 @@
-@import '../styles/globalVar.scss';
+@import "../styles/globalVar.scss";
 
 .grid-container {
   display: grid;
-  grid-template-rows: 10% 80%;
+  grid-template-rows: max-content 1fr;
 }
