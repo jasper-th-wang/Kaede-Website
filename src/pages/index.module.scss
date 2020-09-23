@@ -38,10 +38,52 @@
 }
 
 .introSection {
+  position: relative;
   padding: 3rem 0 3rem 0;
   margin: 0 $mobile-margin 0 $mobile-margin;
   // background-image: url(../assets/svgs/leaf.svg);
   h2 {
     display: none;
+  }
+}
+
+.leaf {
+  position: absolute;
+  display: inline;
+  width: 17rem;
+  right: 0;
+  bottom: 0;
+  opacity: 0.35;
+  transform: rotate(-35deg);
+}
+
+.servicesSection {
+  padding: 3rem 0 3rem 0;
+  // background-color: #dbdbdb;
+
+  figure {
+    position: relative;
+    margin: 0;
+
+    div {
+      height: 15rem;
+
+      img {
+        object-fit: cover;
+        filter: blur(0.8px) contrast(80%);
+      }
+    }
+
+    figcaption {
+      font-size: 2em;
+      font-weight: 100;
+      text-transform: capitalize;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 100;
+      color: #ffffff;
+    }
   }
 }

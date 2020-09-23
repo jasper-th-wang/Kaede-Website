@@ -3,4 +3,13 @@
 .grid-container {
   display: grid;
   grid-template-rows: max-content 1fr;
+  overflow-x: hidden;
+
+  footer {
+    padding: 3rem 0 3rem 0;
+    background-color: $primary-red;
+    color: $primary-grey;
+    font-size: 0.75em;
+    text-align: center;
+  }
 }

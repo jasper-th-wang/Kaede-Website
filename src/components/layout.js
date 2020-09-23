@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
         <main>
           { children }
         </main>
-        <footer></footer>
+        <footer>Copyright &#169; 2020 Kaede Construction Ltd. All rights reserved.</footer>
       </div>
     </div>
   )
