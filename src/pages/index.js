@@ -49,7 +49,6 @@ const IndexPage = () => {
         <p>We specialize in high end  custom homes and the extra ordinary. We have extensive knowledge and  experience in building envelope science and air barrier installations as well.</p>
       </section>
       <section className={ classes.servicesSection }>
-        {/* <h2>Our services</h2> */ }
         {
           imageData.services.nodes.map(img => (
             <figure key={ img.childImageSharp.id }>
