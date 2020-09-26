@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useTransition, animated } from 'react-spring';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // accept 2 figures as the children
 // and produce a reveal box
@@ -13,23 +14,27 @@ const RevealBox = ({ boxIndex, currentIndex, children, clickHandler }) => {
 
   }, [boxIndex, currentIndex]);
 
-  const transition = useTransition(toggled, null, {
-    from: { transform: 'translate3d(0,-40px,0)' },
-    enter: { transform: 'translate3d(0,0px,0)' },
-    leave: { transform: 'translate3d(0,-40px,0)' },
-  });
+  const boxVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+    }
+  }
 
   // if current index => transition
   // transition: if cur === inex then cur[0] show and cur[1] hide
   return (
     <div onClick={ toggled === 1 ? () => clickHandler(0) : () => clickHandler(boxIndex) }>
-      {
-        transition.map(({ props }) =>
+      <AnimatePresence exitBeforeEnter>
+        {
           toggled === 1 ?
-            props => React.cloneElement(children[0], { style: { props } }) :
-            props => React.cloneElement(children[1], { style: { props } })
-        )
-      }
+            <motion.div variants={ boxVariants } initial="hidden" animate="visible" exit={ { opacity: 0 } } key='content-page'>{ children[0] }</motion.div> :
+            <motion.div variants={ boxVariants } initial="hidden" animate="visible" exit={ { opacity: 0 } } key='cover-page'>{ children[1] }</motion.div>
+        }
+      </AnimatePresence>
+
     </div>
   )
 
