@@ -5,23 +5,22 @@
   &-img {
     height: 53vh;
     // object-fit: cover;
-    filter: contrast(75%);
+    // filter: contrast(75%);
+    @include dimImage;
   }
 
   &-text {
     text-align: right;
     position: absolute;
-    bottom: $mobile-margin;
+    bottom: var(--side-margin);
     right: 0;
-    margin-right: $mobile-margin;
+    margin-right: var(--side-margin);
     color: #ffffff;
 
     h2 {
-      font-size: 2.7rem;
       margin-top: 0;
       margin-bottom: 0;
       // line-height: 1.15;
-      font-weight: 900;
     }
     h3 {
       font-size: 2rem;
@@ -31,7 +30,7 @@
     }
 
     span {
-      color: $primary-grey;
+      color: var(--primary-grey);
       font-weight: 500;
     }
   }
@@ -40,7 +39,7 @@
 .introSection {
   position: relative;
   padding: 3rem 0 3rem 0;
-  margin: 0 $mobile-margin 0 $mobile-margin;
+  margin: 0 var(--side-margin) 0 var(--side-margin);
   // background-image: url(../assets/svgs/leaf.svg);
   h2 {
     display: none;
@@ -57,9 +56,64 @@
   transform: rotate(-35deg);
 }
 
-.servicesSection {
-  padding: 3rem 0 3rem 0;
-  // background-color: #dbdbdb;
+.services-section {
+  padding: 3rem var(--side-margin) 3rem var(--side-margin);
+  background-color: var(--primary-red);
+
+  h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 0.65;
+  }
+  p {
+    padding: 3rem 0 3rem 0;
+    margin: 0;
+  }
+
+  figure {
+    height: 15rem;
+    position: relative;
+    margin: 0;
+    margin-bottom: var(--side-margin);
+
+    div {
+      height: 15rem;
+      @include dimImage;
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    figcaption {
+      font-size: 1.5em;
+      font-weight: 100;
+      text-transform: capitalize;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 100;
+      color: #ffffff;
+    }
+  }
+}
+
+.project-section {
+  padding: 3rem var(--side-margin) 3rem var(--side-margin);
+  background-color: var(--primary-grey);
+  color: #ffffff;
+  h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 0.65;
+    color: currentColor;
+  }
+  p {
+    padding: 3rem 0 3rem 0;
+    color: currentColor;
+    margin: 0;
+  }
 
   figure {
     position: relative;
@@ -67,15 +121,15 @@
 
     div {
       height: 15rem;
+      @include dimImage;
 
       img {
         object-fit: cover;
-        filter: blur(0.8px) contrast(80%);
       }
     }
 
     figcaption {
-      font-size: 2em;
+      font-size: 1.5em;
       font-weight: 100;
       text-transform: capitalize;
       position: absolute;

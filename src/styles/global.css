@@ -5,13 +5,31 @@ html {
   font-size: 16px;
 }
 
+:root {
+  --side-margin: 1rem;
+  --primary-red: #c26363;
+  --primary-grey: #303030;
+}
+
 body {
   overflow-x: hidden;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--primary-grey);
+}
+
+h2 {
+  font-size: 2.7rem;
+  font-weight: 900;
 }
 
 p {
   font-size: 0.875em;
   line-height: 1.5;
+  color: var(--primary-grey);
 }
 
 li {

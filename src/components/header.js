@@ -17,13 +17,6 @@ const Header = ({ siteTitle }) => {
     setClicked(prevState => !prevState);
   }
 
-  const expandMenu = useSpring({
-    config: config.molasses,
-    delay: clicked ? 0 : 300,
-    opacity: clicked ? 1 : 0.95,
-    height: clicked ? '100vh' : '1rem',
-    width: clicked ? '100vw' : '1rem',
-  })
 
   return (
     <header className={ classes.header }>
@@ -33,8 +26,12 @@ const Header = ({ siteTitle }) => {
         <img src={ logo } alt="Kaede Construction" className={ classes.logo } />
       </picture>
       <nav>
-        <animated.div className={ classes.menuBackground } style={ expandMenu }>
-        </animated.div>
+        <div className={
+          clicked ?
+            `${ classes.menuBackground } ${ classes.menuBackgroundClicked }`
+            : classes.menuBackground
+        }>
+        </div>
         <button
           className={
             `${ classes.hamburger } 

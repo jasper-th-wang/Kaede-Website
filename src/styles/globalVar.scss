@@ -1,6 +1,14 @@
 // Global variables
 // Colors:
-$primary-red: #c26363;
-$primary-grey: #303030;
-
-$mobile-margin: 1rem;
+@mixin dimImage {
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #505050;
+    opacity: 0.4;
+  }
+}

@@ -4,10 +4,10 @@
   display: flex;
   justify-content: space-between;
   height: 4rem;
-  background-color: $primary-grey;
+  background-color: var(--primary-grey);
   align-items: center;
   nav {
-    margin-left: $mobile-margin;
+    margin-left: var(--side-margin);
     z-index: 1000;
   }
 }
@@ -15,22 +15,30 @@
 .logo {
   width: 2.6rem;
   height: auto;
-  padding-left: $mobile-margin;
+  padding-left: var(--side-margin);
   filter: invert(100%);
 }
 
 .menuBackground {
   display: block;
-  background-color: $primary-red;
+  background-color: var(--primary-red);
   position: absolute;
-  top: -40rem;
-  right: -40rem;
-  border-radius: 100%;
+  top: -80vh;
+  right: -80vh;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  transition: all 1s 0.1s;
+
+  &.menuBackgroundClicked {
+    height: 200vh;
+    width: 200vh;
+  }
 }
 
 // hamburger menu
 .hamburger {
-  padding: $mobile-margin $mobile-margin;
+  padding: var(--side-margin) var(--side-margin);
   display: inline-block;
   cursor: pointer;
   transition-property: opacity, filter;
