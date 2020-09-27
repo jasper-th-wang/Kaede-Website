@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useTransition, animated } from 'react-spring';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // accept 2 figures as the children
@@ -26,7 +25,7 @@ const RevealBox = ({ boxIndex, currentIndex, children, clickHandler }) => {
   // if current index => transition
   // transition: if cur === inex then cur[0] show and cur[1] hide
   return (
-    <div onClick={ toggled === 1 ? () => clickHandler(0) : () => clickHandler(boxIndex) }>
+    <button onClick={ toggled === 1 ? () => clickHandler(0) : () => clickHandler(boxIndex) }>
       <AnimatePresence exitBeforeEnter>
         {
           toggled === 1 ?
@@ -35,7 +34,7 @@ const RevealBox = ({ boxIndex, currentIndex, children, clickHandler }) => {
         }
       </AnimatePresence>
 
-    </div>
+    </button>
   )
 
 }

@@ -6,6 +6,8 @@ import LeafSVG from '../assets/svgs/leaf.inline.svg';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RevealBox from '../components/revealBox';
+import Carousel from '../components/carousel';
+
 import classes from "./index.module.scss";
 
 
@@ -85,7 +87,7 @@ const IndexPage = () => {
               clickHandler={ serviceToggleHandler }
             >
               <figure>
-                <figcaption>taiyaki minim sint ex laborum food truck kinfolk farm-to-table. Banh mi health goth vinyl 8-bit whatever.</figcaption>
+                <p className={ classes.serviceContent }>taiyaki minim sint ex laborum food truck kinfolk farm-to-table. Banh mi health goth vinyl 8-bit whatever.</p>
               </figure>
               <figure>
                 <Img fluid={ img.childImageSharp.fluid } />
@@ -99,22 +101,19 @@ const IndexPage = () => {
         <h1>Projects.</h1>
         <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
         {
-          imageData.services.nodes.map((img) => (
-            <figure key={ img.childImageSharp.id }>
-              <Img fluid={ img.childImageSharp.fluid } />
-              <figcaption>
-                { img.name }
-                <button>See More</button>
-              </figcaption>
-            </figure>
 
-          ))
+          <Carousel imageArray={ imageData.services.nodes } />
+          // imageData.services.nodes.map((img) => (
+          //   <figure key={ img.childImageSharp.id }>
+          //     <Img fluid={ img.childImageSharp.fluid } />
+          //     <figcaption>
+          //       { img.name }
+          //       <button>See More</button>
+          //     </figcaption>
+          //   </figure>
+
+          // ))
         }
-        <RevealBox index={ 1 } currentIndex={ 1 }>
-          <p>hi</p>
-          <p>yo</p>
-        </RevealBox>
-
       </section>
     </Layout>
 

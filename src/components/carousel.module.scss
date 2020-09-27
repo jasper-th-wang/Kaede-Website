@@ -1,0 +1,42 @@
+.carousel {
+  .image {
+    height: 30rem;
+  }
+
+  img {
+    object-fit: cover;
+  }
+
+  figure {
+    position: relative;
+    margin: 0;
+  }
+  span.slideCount {
+    width: 4rem;
+  }
+
+  figcaption {
+    font-size: 1.5em;
+    font-weight: 100;
+    text-transform: capitalize;
+    text-align: right;
+    padding-left: 5rem;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    // z-index: 100;
+    color: #ffffff;
+  }
+
+  .captionContainer {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .progressBar {
+    display: block;
+    background-color: var(--primary-red);
+    height: 3px;
+  }
+}
