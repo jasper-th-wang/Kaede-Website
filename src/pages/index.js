@@ -73,7 +73,7 @@ const IndexPage = () => {
         <LeafSVG className={ classes.leaf } />
         <h2>Excellence & Quality</h2>
         <p>Based on the North Shore, Kaede Construction and its affiliates have been creating spectacular exterior finishing and cladding installs for over 20 years.</p>
-        <p>We specialize in high end  custom homes and the extra ordinary. We have extensive knowledge and  experience in building envelope science and air barrier installations as well.</p>
+        <p>We specialize in high end  custom homes and the extra ordinary. We have extensive knowledge and experience in building envelope science and air barrier installations as well.</p>
       </section>
       <section className={ classes.servicesSection } ref={ serviceSectionRef }>
         <h1>Services.</h1>
@@ -103,17 +103,14 @@ const IndexPage = () => {
         {
 
           <Carousel imageArray={ imageData.services.nodes } />
-          // imageData.services.nodes.map((img) => (
-          //   <figure key={ img.childImageSharp.id }>
-          //     <Img fluid={ img.childImageSharp.fluid } />
-          //     <figcaption>
-          //       { img.name }
-          //       <button>See More</button>
-          //     </figcaption>
-          //   </figure>
 
-          // ))
         }
+      </section>
+      <section className={ classes.contactSection }>
+        <h1>Get in Touch!</h1>
+        <p>Let us help you plan, budget and complete your home reonovation ideas!</p>
+        <button className={ classes.button1 }>Contact Us</button>
+        <LeafSVG className={ classes.leaf } />
       </section>
     </Layout>
 

@@ -54,11 +54,17 @@
   bottom: 0;
   opacity: 0.35;
   transform: rotate(-35deg);
+  z-index: -1;
 }
 
 .services-section {
   padding: 3rem var(--side-margin) 3rem var(--side-margin);
   background-color: var(--primary-red);
+
+  p {
+    padding: 3rem 0 3rem 0;
+    margin: 0;
+  }
 
   button {
     display: block;
@@ -66,6 +72,7 @@
     border: none;
     background-color: transparent;
     transition: 0.5s all;
+    margin-bottom: var(--side-margin);
 
     &:hover {
       cursor: pointer;
@@ -73,16 +80,6 @@
     }
   }
 
-  h1 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 0.65;
-  }
-
-  p {
-    padding: 3rem 0 3rem 0;
-    margin: 0;
-  }
   .serviceContent {
     padding: 3rem 3rem 3rem 3rem;
     margin: 0;
@@ -93,7 +90,7 @@
     height: 15rem;
     position: relative;
     margin: 0;
-    margin-bottom: var(--side-margin);
+    margin-bottom: 0;
 
     div {
       height: 15rem;
@@ -123,15 +120,12 @@
   background-color: var(--primary-grey);
   color: #ffffff;
   h1 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 0.65;
     color: currentColor;
   }
   p {
     padding: 3rem 0 3rem 0;
-    color: currentColor;
     margin: 0;
+    color: currentColor;
   }
 
   // figure {
@@ -159,4 +153,23 @@
   //     color: #ffffff;
   //   }
   // }
+}
+
+.contactSection {
+  position: relative;
+  padding: 3rem 0 3rem 0;
+  margin: 0 var(--side-margin) 0 var(--side-margin);
+
+  h1 {
+    line-height: 1;
+  }
+}
+
+.button1 {
+  // border: none;
+  margin: 0;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #fff;
+  border: 3px solid var(--primary-red);
 }
