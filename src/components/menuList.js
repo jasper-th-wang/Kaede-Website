@@ -1,5 +1,6 @@
-import React from "react";
-import { AnimatePresence, motion } from 'framer-motion';
+import React, { useEffect, useRef } from "react";
+import { motion } from 'framer-motion';
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 import classes from './menuList.module.scss';
 import { Link } from 'gatsby';
@@ -7,16 +8,19 @@ import { Link } from 'gatsby';
 const MenuList = ({ toggled, toggleMenuHandler }) => {
 
   // item that is an array contains the name of the page and the camel case of it for Link
-  const menuItems = [['Home', ''], 'Services', 'Projects', ['About us', 'AboutUs'], ['Contact us', 'ContactUs']];
+  const menuItems = [['Home', ''], ['Services', 'services'], ['Projects', 'projects'], ['About us', 'about-us'], ['Contact us', 'contact-us']];
 
-  // const config = { mass: 5, stiffness: 2000, friction: 90 };
-  // const listTrail = useTrail(menuItems.length, {
-  //   config,
-  //   delay: toggled ? 500 : 0,
-  //   opacity: toggled ? 1 : 0,
-  //   transform: toggled ? 'translateY(-10rem)' : 'translateY(-8rem)',
-  //   height: toggled ? '1rem' : '0rem',
-  // });
+  const scrollLockTarget = useRef(null);
+
+  useEffect(() => {
+    console.log(scrollLockTarget.current);
+    toggled ? disableBodyScroll(scrollLockTarget.current) : enableBodyScroll(scrollLockTarget.current);
+
+    return () => {
+      clearAllBodyScrollLocks();
+    }
+  }, [toggled, scrollLockTarget]);
+
   const parentVariants = {
     hidden: {},
     visible: {
@@ -26,7 +30,7 @@ const MenuList = ({ toggled, toggleMenuHandler }) => {
         stiffness: 1000,
         damping: 300,
         staggerChildren: 0.1,
-        delayChildren: 0.5,
+        delayChildren: 0.2,
       }
     }
   }
@@ -55,14 +59,14 @@ const MenuList = ({ toggled, toggleMenuHandler }) => {
   }
 
   return (
-    <ul className={ classes.menuList }>
+    <ul className={ classes.menuList } ref={ scrollLockTarget }>
       <motion.div variants={ parentVariants } initial="hidden" animate={ toggled ? "visible" : "hidden" }>
         { menuItems.map((item, index) => (
           <motion.div key={ index } variants={ divVariants }>
             <motion.li variants={ liVariants }
               onClick={ toggleMenuHandler }>
-              <Link to={ `/${ Array.isArray(item) ? item[1] : item }` }>
-                { Array.isArray(item) ? item[0] : item }
+              <Link to={ `/${ item[1] }` }>
+                { item[0] }
               </Link>
             </motion.li>
           </motion.div>

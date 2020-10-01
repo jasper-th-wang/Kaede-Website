@@ -6,9 +6,9 @@ import Img from 'gatsby-image';
 import Layout from "../components/layout"
 
 import SEO from "../components/seo"
-import classes from './services.module.scss';
+import classes from './contact-us.module.scss';
 
-const ServicePage = () => {
+const ContactUsPage = () => {
   const imageData = useStaticQuery(graphql`
       query {
         home1: file(relativePath: {eq: "home/home1.jpg"}) {
@@ -35,11 +35,11 @@ const ServicePage = () => {
   return (
 
     <Layout>
-      <SEO title="Services" />
+      <SEO title="Contact Us" />
       <section className={ classes.hero }>
         <Img fluid={ imageData.home1.childImageSharp.fluid } alt="Dream Home" className={ classes.heroImg } />
         <div className={ classes.heroText }>
-          <h1>Services</h1>
+          <h1>Contact Us</h1>
         </div>
       </section>
 
@@ -48,4 +48,4 @@ const ServicePage = () => {
   );
 }
 
-export default ServicePage;
+export default ContactUsPage;

@@ -45,10 +45,7 @@ const IndexPage = () => {
   const serviceSectionRef = useRef(null);
 
   const clickToCloseService = useCallback(event => {
-    console.log(event.target);
     if (serviceSectionRef.current.contains(event.target)) return;
-    console.log('Its not in service section!');
-    console.log(toggledService);
     setToggledService(0);
   }, []);
   useEffect(() => {

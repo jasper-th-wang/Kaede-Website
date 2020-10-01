@@ -1,0 +1,41 @@
+@import "../styles/globalVar.scss";
+
+.hero {
+  position: relative;
+  &-img {
+    height: 53vh;
+    // object-fit: cover;
+    // filter: contrast(75%);
+    @include dimImage;
+  }
+
+  h1 {
+    color: #fff;
+  }
+
+  &-text {
+    text-align: right;
+    position: absolute;
+    bottom: var(--side-margin);
+    right: 0;
+    margin-right: var(--side-margin);
+    color: #ffffff;
+  }
+
+  //   h2 {
+  //     margin-top: 0;
+  //     margin-bottom: 0;
+  //     // line-height: 1.15;
+  //   }
+  //   h3 {
+  //     font-size: 2rem;
+  //     font-weight: 300;
+  //     margin-top: 0;
+  //     margin-bottom: 0rem;
+  //   }
+
+  //   span {
+  //     color: var(--primary-grey);
+  //     font-weight: 500;
+  //   }
+}

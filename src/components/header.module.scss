@@ -25,14 +25,25 @@
   position: absolute;
   top: -80vh;
   right: -80vh;
+
+  @media screen and (orientation: landscape) {
+    top: -100vw;
+    right: -100vw;
+  }
+
   border-radius: 50%;
   height: 20px;
   width: 20px;
-  transition: all 1s 0.1s;
+  transition: all 1s cubic-bezier(0.33, 1, 0.68, 1);
 
   &.menuBackgroundClicked {
     height: 200vh;
     width: 200vh;
+
+    @media screen and (orientation: landscape) {
+      height: 250vw;
+      width: 250vw;
+    }
   }
 }
 

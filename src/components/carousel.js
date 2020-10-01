@@ -34,7 +34,11 @@ const Carousel = ({ imageArray }) => {
     const changeImage = setInterval(() => {
       setCurrentImage(prev => (prev + 1) % imageArray.length);
     }, 5000);
-  }, [])
+
+    return () => {
+      clearInterval(changeImage);
+    }
+  }, [imageArray.length])
 
 
 
