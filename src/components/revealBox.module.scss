@@ -1,0 +1,48 @@
+@import "../assets/sass/utils/mixins";
+
+.revealBox {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  transition: 0.5s all;
+  margin-bottom: var(--side-margin);
+
+  p {
+    padding: 3rem 3rem 3rem 3rem;
+    margin: 0;
+    text-align: left;
+  }
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(120%);
+  }
+  figure {
+    height: 15rem;
+    position: relative;
+    margin: 0;
+    margin-bottom: 0;
+
+    div {
+      height: 15rem;
+      @include dimImage;
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    figcaption {
+      font-size: 1.5em;
+      font-weight: 100;
+      text-transform: capitalize;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 100;
+      color: #ffffff;
+    }
+  }
+}

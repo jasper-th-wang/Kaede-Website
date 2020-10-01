@@ -1,4 +1,4 @@
-@import "../styles/globalVar.scss";
+@import "../assets/sass/utils/variables";
 
 ul,
 li {
@@ -26,7 +26,7 @@ li {
   li {
     font-size: 1.125em; /* 18px*/
     font-weight: 900;
-    color: var(--primary-grey);
+    color: $primary-grey;
     overflow: hidden;
     // height: 2rem;
 

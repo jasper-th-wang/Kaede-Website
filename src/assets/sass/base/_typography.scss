@@ -5,26 +5,18 @@ html {
   font-size: 16px;
 }
 
-:root {
-  --side-margin: 1rem;
-  --primary-red: #c26363;
-  --primary-grey: #303030;
-}
-
-body {
-  overflow-x: hidden;
+.section {
+  h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 0.65;
+  }
 }
 
 h1 {
   font-size: 4rem;
   font-weight: 900;
-  color: var(--primary-grey);
-}
-
-section h1 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 0.65;
+  color: $primary-grey;
 }
 
 h2 {
@@ -35,16 +27,5 @@ h2 {
 p {
   font-size: 0.875em;
   line-height: 1.5;
-  color: var(--primary-grey);
-}
-
-li {
-}
-
-figure {
-  margin: 0;
-}
-
-button {
-  padding: 0;
+  color: $primary-grey;
 }

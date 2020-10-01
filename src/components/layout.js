@@ -6,6 +6,7 @@ import Header from "./header"
 import '../styles/reset.css';
 import '../styles/global.css';
 import classes from "./layout.module.scss";
+import '../assets/sass/main.scss';
 
 
 const Layout = ({ children }) => {

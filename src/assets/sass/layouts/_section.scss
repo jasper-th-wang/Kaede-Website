@@ -1,0 +1,44 @@
+.section {
+  position: relative;
+  padding: 3rem $side-margin 3rem $side-margin;
+
+  &__content {
+    padding: 3rem 0 3rem 0;
+  }
+
+  p {
+  }
+
+  &--intro {
+  }
+
+  &--services {
+    background-color: $primary-red;
+    p {
+      margin: 0;
+    }
+  }
+
+  &--projects {
+    background-color: $primary-grey;
+    color: #ffffff;
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      color: currentColor;
+    }
+
+    p {
+      color: currentColor;
+      margin: 0;
+    }
+  }
+
+  &--contact {
+    h1 {
+      line-height: 1;
+    }
+  }
+}

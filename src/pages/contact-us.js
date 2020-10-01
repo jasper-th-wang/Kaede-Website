@@ -6,7 +6,7 @@ import Img from 'gatsby-image';
 import Layout from "../components/layout"
 
 import SEO from "../components/seo"
-import classes from './contact-us.module.scss';
+
 
 const ContactUsPage = () => {
   const imageData = useStaticQuery(graphql`
@@ -36,9 +36,9 @@ const ContactUsPage = () => {
 
     <Layout>
       <SEO title="Contact Us" />
-      <section className={ classes.hero }>
-        <Img fluid={ imageData.home1.childImageSharp.fluid } alt="Dream Home" className={ classes.heroImg } />
-        <div className={ classes.heroText }>
+      <section className="hero">
+        <Img fluid={ imageData.home1.childImageSharp.fluid } alt="Dream Home" className="hero__img" />
+        <div className="hero__text">
           <h1>Contact Us</h1>
         </div>
       </section>

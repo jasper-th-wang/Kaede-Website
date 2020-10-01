@@ -8,7 +8,7 @@ import SEO from "../components/seo"
 import RevealBox from '../components/revealBox';
 import Carousel from '../components/carousel';
 
-import classes from "./index.module.scss";
+import '../assets/sass/main.scss';
 
 
 const IndexPage = () => {
@@ -58,23 +58,27 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <section className={ classes.hero }>
-        <Img fluid={ imageData.home1.childImageSharp.fluid } alt="Dream Home" className={ classes.heroImg } />
-        <div className={ classes.heroText }>
+      <section className="hero">
+        <Img fluid={ imageData.home1.childImageSharp.fluid } alt="Dream Home" className="hero__img" />
+        <div className="hero__text">
           <h2>Building<br />Dreams</h2>
           <h3>from concept<br />to <span>completion</span></h3>
         </div>
       </section>
-      <section className={ classes.introSection }>
+      <section className="section section--intro">
         <img src="" alt="" />
-        <LeafSVG className={ classes.leaf } />
-        <h2>Excellence & Quality</h2>
-        <p>Based on the North Shore, Kaede Construction and its affiliates have been creating spectacular exterior finishing and cladding installs for over 20 years.</p>
-        <p>We specialize in high end  custom homes and the extra ordinary. We have extensive knowledge and experience in building envelope science and air barrier installations as well.</p>
+        <LeafSVG className="leaf" />
+        <div className="section__content">
+          <p>Based on the North Shore, Kaede Construction and its affiliates have been creating spectacular exterior finishing and cladding installs for over 20 years.</p>
+          <p>We specialize in high end  custom homes and the extra ordinary. We have extensive knowledge and experience in building envelope science and air barrier installations as well.</p>
+        </div>
       </section>
-      <section className={ classes.servicesSection } ref={ serviceSectionRef }>
+      <section className="section section--services" ref={ serviceSectionRef }>
         <h1>Services.</h1>
-        <p>Gochujang offal pok pok bushwick disrupt VHS consequat blue bottle prism. Brooklyn shabby chic hella whatever taiyaki minim sint ex laborum food truck kinfolk farm-to-table. Banh mi health goth vinyl 8-bit whatever. Tofu ennui humblebrag subway tile gluten-free, bitters wayfarers +1 exercitation.</p>
+        <div className="section__content">
+          <p>Gochujang offal pok pok bushwick disrupt VHS consequat blue bottle prism. Brooklyn shabby chic hella whatever taiyaki minim sint ex laborum food truck kinfolk farm-to-table. Banh mi health goth vinyl 8-bit whatever. Tofu ennui humblebrag subway tile gluten-free, bitters wayfarers +1 exercitation.</p>
+        </div>
+
         {
           imageData.services.nodes.map((img, index) => (
             <RevealBox
@@ -84,7 +88,7 @@ const IndexPage = () => {
               clickHandler={ serviceToggleHandler }
             >
               <figure>
-                <p className={ classes.serviceContent }>taiyaki minim sint ex laborum food truck kinfolk farm-to-table. Banh mi health goth vinyl 8-bit whatever.</p>
+                <p>taiyaki minim sint ex laborum food truck kinfolk farm-to-table. Banh mi health goth vinyl 8-bit whatever.</p>
               </figure>
               <figure>
                 <Img fluid={ img.childImageSharp.fluid } />
@@ -93,21 +97,28 @@ const IndexPage = () => {
             </RevealBox>
           ))
         }
+
       </section>
-      <section className={ classes.projectSection }>
+      <section className="section section--projects">
         <h1>Projects.</h1>
-        <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
+        <div className="section__content">
+          <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
+
+        </div>
         {
 
           <Carousel imageArray={ imageData.services.nodes } />
 
         }
       </section>
-      <section className={ classes.contactSection }>
+      <section className="section section--contact">
         <h1>Get in Touch!</h1>
-        <p>Let us help you plan, budget and complete your home reonovation ideas!</p>
-        <button className={ classes.button1 }>Contact Us</button>
-        <LeafSVG className={ classes.leaf } />
+        <div className="section__content">
+          <p>Let us help you plan, budget and complete your home reonovation ideas!</p>
+
+        </div>
+        <button className="button--sm-red">Contact Us</button>
+        <LeafSVG className="leaf" />
       </section>
     </Layout>
 

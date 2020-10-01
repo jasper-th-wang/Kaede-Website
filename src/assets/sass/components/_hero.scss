@@ -1,0 +1,35 @@
+.hero {
+  position: relative;
+  &__img {
+    height: 53vh;
+    // object-fit: cover;
+    // filter: contrast(75%);
+    @include dimImage;
+  }
+
+  &__text {
+    text-align: right;
+    position: absolute;
+    bottom: $side-margin;
+    right: 0;
+    margin-right: $side-margin;
+    color: #ffffff;
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 0;
+      // line-height: 1.15;
+    }
+    h3 {
+      font-size: 2rem;
+      font-weight: 300;
+      margin-top: 0;
+      margin-bottom: 0rem;
+    }
+
+    span {
+      color: $primary-grey;
+      font-weight: 500;
+    }
+  }
+}

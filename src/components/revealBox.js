@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import classes from './revealBox.module.scss';
+
 // accept 2 figures as the children
 // and produce a reveal box
 const RevealBox = ({ boxIndex, currentIndex, children, clickHandler }) => {
@@ -25,7 +27,7 @@ const RevealBox = ({ boxIndex, currentIndex, children, clickHandler }) => {
   // if current index => transition
   // transition: if cur === inex then cur[0] show and cur[1] hide
   return (
-    <button onClick={ toggled === 1 ? () => clickHandler(0) : () => clickHandler(boxIndex) }>
+    <button className={ classes.revealBox } onClick={ toggled === 1 ? () => clickHandler(0) : () => clickHandler(boxIndex) }>
       <AnimatePresence exitBeforeEnter>
         {
           toggled === 1 ?

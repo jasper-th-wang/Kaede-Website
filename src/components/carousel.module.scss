@@ -1,3 +1,5 @@
+@import "../assets/sass/utils/variables";
+
 .carousel {
   .image {
     height: 30rem;
@@ -36,7 +38,7 @@
   }
   .progressBar {
     display: block;
-    background-color: var(--primary-red);
+    background-color: $primary-red;
     height: 3px;
   }
 }
