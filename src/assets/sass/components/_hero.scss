@@ -10,10 +10,19 @@
   &__text {
     text-align: right;
     position: absolute;
-    bottom: $side-margin;
+    bottom: 0;
     right: 0;
     margin-right: $side-margin;
     color: #ffffff;
+
+    &--home {
+      bottom: ($side-margin / 2);
+    }
+
+    h1 {
+      // color: currentColor;
+      margin: 0;
+    }
 
     h2 {
       margin-top: 0;

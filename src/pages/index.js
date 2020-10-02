@@ -8,7 +8,6 @@ import SEO from "../components/seo"
 import RevealBox from '../components/revealBox';
 import Carousel from '../components/carousel';
 
-import '../assets/sass/main.scss';
 
 
 const IndexPage = () => {
@@ -60,59 +59,56 @@ const IndexPage = () => {
       <SEO title="Home" />
       <section className="hero">
         <Img fluid={ imageData.home1.childImageSharp.fluid } alt="Dream Home" className="hero__img" />
-        <div className="hero__text">
+        <div className="hero__text hero__text--home">
           <h2>Building<br />Dreams</h2>
           <h3>from concept<br />to <span>completion</span></h3>
         </div>
       </section>
-      <section className="section section--intro">
-        <img src="" alt="" />
+      <section className="section section--white section--intro">
         <LeafSVG className="leaf" />
-        <div className="section__content">
+        <div className="section__content section__content--no-heading">
           <p>Based on the North Shore, Kaede Construction and its affiliates have been creating spectacular exterior finishing and cladding installs for over 20 years.</p>
           <p>We specialize in high end  custom homes and the extra ordinary. We have extensive knowledge and experience in building envelope science and air barrier installations as well.</p>
         </div>
       </section>
-      <section className="section section--services" ref={ serviceSectionRef }>
+      <section className="section section--red">
         <h1>Services.</h1>
         <div className="section__content">
           <p>Gochujang offal pok pok bushwick disrupt VHS consequat blue bottle prism. Brooklyn shabby chic hella whatever taiyaki minim sint ex laborum food truck kinfolk farm-to-table. Banh mi health goth vinyl 8-bit whatever. Tofu ennui humblebrag subway tile gluten-free, bitters wayfarers +1 exercitation.</p>
         </div>
+        <div className="services-gallery" ref={ serviceSectionRef }>
+          {
+            imageData.services.nodes.map((img, index) => (
+              <RevealBox
+                key={ img.childImageSharp.id }
+                boxIndex={ index + 1 }
+                currentIndex={ toggledService }
+                clickHandler={ serviceToggleHandler }
+              >
+                <figure>
+                  <p>taiyaki minim sint ex laborum food truck kinfolk farm-to-table. Banh mi health goth vinyl 8-bit whatever.</p>
+                </figure>
+                <figure>
+                  <Img fluid={ img.childImageSharp.fluid } />
+                  <figcaption>{ img.name }</figcaption>
+                </figure>
+              </RevealBox>
+            ))
+          }
+        </div>
 
-        {
-          imageData.services.nodes.map((img, index) => (
-            <RevealBox
-              key={ img.childImageSharp.id }
-              boxIndex={ index + 1 }
-              currentIndex={ toggledService }
-              clickHandler={ serviceToggleHandler }
-            >
-              <figure>
-                <p>taiyaki minim sint ex laborum food truck kinfolk farm-to-table. Banh mi health goth vinyl 8-bit whatever.</p>
-              </figure>
-              <figure>
-                <Img fluid={ img.childImageSharp.fluid } />
-                <figcaption>{ img.name }</figcaption>
-              </figure>
-            </RevealBox>
-          ))
-        }
 
       </section>
-      <section className="section section--projects">
+      <section className="section section--grey">
         <h1>Projects.</h1>
         <div className="section__content">
           <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
 
         </div>
-        {
-
-          <Carousel imageArray={ imageData.services.nodes } />
-
-        }
+        <Carousel imageArray={ imageData.services.nodes } />
       </section>
-      <section className="section section--contact">
-        <h1>Get in Touch!</h1>
+      <section className="section section--white">
+        <h1 className="util-lh-1">Get in Touch!</h1>
         <div className="section__content">
           <p>Let us help you plan, budget and complete your home reonovation ideas!</p>
 

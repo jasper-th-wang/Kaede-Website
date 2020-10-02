@@ -1,6 +1,8 @@
 @import "../assets/sass/utils/variables";
 
 .carousel {
+  margin: 0;
+
   .image {
     height: 30rem;
   }
@@ -15,6 +17,23 @@
   }
   span.slideCount {
     width: 4rem;
+  }
+
+  &.mode2 {
+    .image {
+      height: 15rem;
+    }
+
+    figure {
+      display: none;
+    }
+    figcaption {
+      display: none;
+    }
+
+    span.slideCount {
+      display: none;
+    }
   }
 
   figcaption {

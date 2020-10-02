@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Img from 'gatsby-image';
 import classes from './carousel.module.scss';
 
-const Carousel = ({ imageArray }) => {
+const Carousel = ({ imageArray, mode }) => {
 
   const [currentImage, setCurrentImage] = useState(0);
 
@@ -44,11 +44,12 @@ const Carousel = ({ imageArray }) => {
 
   return (
     <AnimatePresence exitBeforeEnter>
+      {console.log(mode) }
       {
         imageArray.map((item, index) => (
           currentImage === index &&
           <motion.figure
-            className={ classes.carousel }
+            className={ mode === undefined ? classes.carousel : `${ classes.carousel } ${ classes.mode2 }` }
             key={ item.childImageSharp.id }
             variants={ imageVariants }
             initial="hidden"

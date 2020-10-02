@@ -1,12 +1,14 @@
 @import "../assets/sass/utils/mixins";
+@import "../assets/sass/utils/variables";
 
 .revealBox {
+  padding: 0;
   display: block;
   width: 100%;
   border: none;
   background-color: transparent;
   transition: 0.5s all;
-  margin-bottom: var(--side-margin);
+  margin-bottom: $side-margin;
 
   p {
     padding: 3rem 3rem 3rem 3rem;
@@ -22,7 +24,6 @@
     height: 15rem;
     position: relative;
     margin: 0;
-    margin-bottom: 0;
 
     div {
       height: 15rem;

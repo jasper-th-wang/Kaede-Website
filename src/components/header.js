@@ -3,8 +3,9 @@ import React, { useState } from "react"
 
 import MenuList from './menuList';
 import classes from "./header.module.scss";
-import logo from '../assets/images/logo/kaede_logo.png';
+import logo from '../assets/images/logo/kaede_text-white.png';
 import logoLeaf from '../assets/images/logo/kaede_logo_leaf.png';
+import LeafSVG from '../assets/svgs/leaf.inline.svg';
 
 
 
@@ -19,11 +20,15 @@ const Header = ({ siteTitle }) => {
 
   return (
     <header className={ classes.header }>
-      <picture>
-        <source media="(max-width: 768px)" srcSet={ logo } />
-        <source media="(min-width: 767px)" srcSet={ logoLeaf } />
-        <img src={ logo } alt="Kaede Construction" className={ classes.logo } />
-      </picture>
+      <div className={ classes.logoBox }>
+        <picture>
+          <source media="(max-width: 768px)" srcSet={ logo } />
+          <source media="(min-width: 767px)" srcSet={ logoLeaf } />
+          <img src={ logo } alt="Kaede Construction" className={ classes.logo } />
+        </picture>
+        <LeafSVG className={ classes.logoBox__leaf } />
+      </div>
+
       <nav>
         <div className={
           clicked ?

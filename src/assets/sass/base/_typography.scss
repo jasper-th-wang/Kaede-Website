@@ -11,21 +11,29 @@ html {
     margin-bottom: 0;
     line-height: 0.65;
   }
+
+  // util:
+  .util-lh-1 {
+    line-height: 1;
+  }
+
+  .util-shrink {
+    font-size: 3.5em;
+  }
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 4em;
   font-weight: 900;
-  color: $primary-grey;
 }
 
 h2 {
-  font-size: 2.7rem;
+  font-size: 2.7em;
   font-weight: 900;
 }
 
 p {
-  font-size: 0.875em;
-  line-height: 1.5;
+  font-size: 1em;
+  line-height: 1.7;
   color: $primary-grey;
 }

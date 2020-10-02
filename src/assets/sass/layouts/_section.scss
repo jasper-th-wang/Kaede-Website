@@ -2,43 +2,63 @@
   position: relative;
   padding: 3rem $side-margin 3rem $side-margin;
 
-  &__content {
-    padding: 3rem 0 3rem 0;
+  p {
+    margin: 0;
   }
 
-  p {
+  h2 {
+    margin: 0;
+    color: $primary-grey;
   }
 
   &--intro {
+    padding: 5rem $side-margin 5rem $side-margin;
   }
 
-  &--services {
+  &--white {
+    color: $primary-grey;
+  }
+
+  &--red {
+    color: $primary-grey;
     background-color: $primary-red;
-    p {
-      margin: 0;
-    }
   }
 
-  &--projects {
+  &--grey {
     background-color: $primary-grey;
     color: #ffffff;
-    p {
-      margin: 0;
-    }
-
-    h1 {
-      color: currentColor;
-    }
 
     p {
       color: currentColor;
-      margin: 0;
     }
   }
 
-  &--contact {
-    h1 {
-      line-height: 1;
+  &__content {
+    position: relative;
+    padding: 3rem 0 3rem 0;
+
+    &--no-heading {
+      padding: 0;
+    }
+
+    &--grey-lg {
+      p {
+        color: #5c5c5c;
+        margin-block-end: 1em;
+        &:first-child {
+          font-size: 1.25rem;
+          color: $primary-grey;
+        }
+      }
+    }
+    &--white-lg {
+      p {
+        color: #ffffff;
+        margin-block-end: 1em;
+        &:first-child {
+          font-size: 1.25rem;
+        }
+      }
     }
   }
 }

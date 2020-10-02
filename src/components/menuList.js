@@ -25,10 +25,10 @@ const MenuList = ({ toggled, toggleMenuHandler }) => {
     hidden: {},
     visible: {
       transition: {
-        type: 'spring',
-        mass: 10,
-        stiffness: 1000,
-        damping: 300,
+        // type: 'spring',
+        // mass: 10,
+        // stiffness: 1000,
+        // damping: 300,
         staggerChildren: 0.1,
         delayChildren: 0.2,
       }
@@ -38,22 +38,47 @@ const MenuList = ({ toggled, toggleMenuHandler }) => {
   const divVariants = {
     hidden: {
       opacity: 0,
-      translateY: '-5rem',
+      translateY: '-1rem',
+      transition: {
+        // duration: 0.7,
+        type: 'spring',
+        mass: 5,
+        stiffness: 1000,
+        damping: 300,
+      }
     },
     visible: {
       opacity: 1,
       translateY: '-10rem',
+      transition: {
+        // translateY: { duration: 2 }
+        type: 'spring',
+        mass: 5,
+        stiffness: 1000,
+        damping: 300,
+      }
     }
   }
 
   const liVariants = {
     hidden: {
       height: '0rem',
+      transition: {
+        // duration: 0.7,
+        type: 'spring',
+        mass: 5,
+        stiffness: 1000,
+        damping: 300,
+      }
     },
     visible: {
-      height: '1.4rem',
+      height: '2.2rem',
       transition: {
-        duration: 0.7,
+        // duration: 0.7,
+        type: 'spring',
+        mass: 5,
+        stiffness: 1000,
+        damping: 300,
       }
     }
   }

@@ -1,0 +1,15 @@
+.info-card {
+  // reset
+  margin: 0;
+  padding: 3rem;
+
+  &__img {
+  }
+
+  &__text {
+    font-size: 2rem;
+
+    margin-top: 3rem;
+    text-align: center;
+  }
+}
