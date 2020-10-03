@@ -1,0 +1,28 @@
+@import "../assets/sass/utils/variables";
+
+.contactForm {
+  label {
+    font-size: 1.25em;
+    display: block;
+    margin-bottom: 2rem;
+  }
+
+  input,
+  textarea {
+    box-sizing: border-box;
+    display: block;
+    margin-top: 1rem;
+    width: 100%;
+
+    padding-left: $side-margin;
+  }
+
+  input {
+    height: 3rem;
+  }
+
+  textarea {
+    height: 15rem;
+    padding-top: $side-margin;
+  }
+}

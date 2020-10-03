@@ -6,6 +6,7 @@ import FacebookIcon from '../assets/svgs/facebook.inline.svg';
 import InstagramIcon from '../assets/svgs/instagram.inline.svg';
 
 import Layout from "../components/layout"
+import ContactForm from '../components/ContactForm';
 import SEO from "../components/seo"
 
 
@@ -66,12 +67,15 @@ const ContactUsPage = () => {
                 <InstagramIcon />
               </a>
             </div>
-
           </div>
-
         </div>
-
       </section>
+      <section className="section section--grey">
+        <ContactForm />
+      </section>
+
+
+
 
     </Layout>
 

@@ -92,7 +92,7 @@ const ServicePage = () => {
           <p>Let us help you plan, budget and complete your home reonovation ideas!</p>
 
         </div>
-        <button className="button--sm-red">Contact Us</button>
+        <button className="small-button">Contact Us</button>
         <LeafSVG className="leaf" />
       </section>
 
