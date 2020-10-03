@@ -21,12 +21,12 @@ const Header = ({ siteTitle }) => {
   return (
     <header className={ classes.header }>
       <div className={ classes.logoBox }>
+        <LeafSVG className={ classes.logoBox__leaf } />
         <picture>
           <source media="(max-width: 768px)" srcSet={ logo } />
           <source media="(min-width: 767px)" srcSet={ logoLeaf } />
           <img src={ logo } alt="Kaede Construction" className={ classes.logo } />
         </picture>
-        <LeafSVG className={ classes.logoBox__leaf } />
       </div>
 
       <nav>

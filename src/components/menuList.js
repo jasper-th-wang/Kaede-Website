@@ -29,7 +29,7 @@ const MenuList = ({ toggled, toggleMenuHandler }) => {
         // mass: 10,
         // stiffness: 1000,
         // damping: 300,
-        staggerChildren: 0.1,
+        staggerChildren: 0.15,
         delayChildren: 0.2,
       }
     }

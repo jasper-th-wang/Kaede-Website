@@ -1,4 +1,26 @@
+// page specific styles
+
+// Global (every pages)
+
 body {
   overflow-x: hidden;
   margin: 0;
+}
+
+// contact-us Page
+
+.contact-info {
+  margin-top: 3rem;
+
+  p {
+    font-size: 1.25em;
+  }
+
+  &__company-name {
+    font-weight: bold;
+  }
+
+  &__connect {
+    margin-top: 1rem;
+  }
 }

@@ -12,3 +12,21 @@
 .project-svgs {
   width: 100%;
 }
+
+.social-media-icons {
+  margin-top: 1rem;
+  &__icon {
+    display: inline-block;
+    width: 3rem;
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+
+  svg {
+    width: 100%;
+    height: auto;
+    fill: $primary-grey;
+  }
+}
