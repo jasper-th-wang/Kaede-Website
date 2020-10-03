@@ -8,7 +8,10 @@
   border: none;
   background-color: transparent;
   transition: 0.5s all;
-  margin-bottom: $side-margin;
+
+  &:not(:last-child) {
+    margin-bottom: $side-margin;
+  }
 
   p {
     padding: 3rem 3rem 3rem 3rem;

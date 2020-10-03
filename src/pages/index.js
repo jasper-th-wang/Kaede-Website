@@ -1,11 +1,11 @@
-import React, { useState, useCallback, useEffect, useRef } from "react"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from 'gatsby-image';
 import LeafSVG from '../assets/svgs/leaf.inline.svg';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import RevealBox from '../components/revealBox';
+import RevealBoxes from '../components/revealBoxes';
 import Carousel from '../components/carousel';
 
 
@@ -34,25 +34,11 @@ const IndexPage = () => {
       }
   `);
 
-  // 0: non is clicked, 1: first one is clicked... etc.
-  const [toggledService, setToggledService] = useState(0);
-
-  const serviceToggleHandler = (index) => {
-    setToggledService(index);
-  }
-
-  const serviceSectionRef = useRef(null);
-
-  const clickToCloseService = useCallback(event => {
-    if (serviceSectionRef.current.contains(event.target)) return;
-    setToggledService(0);
-  }, []);
-  useEffect(() => {
-    document.body.addEventListener('click', clickToCloseService);
-    return () => {
-      document.body.removeEventListener('click', clickToCloseService);
-    }
-  }, [clickToCloseService]);
+  const servicesContents = [
+    'taiyaki minim sint ex laborum food truck kinfolk farm-to-table. Banh mi health goth vinyl 8-bit whatever.',
+    'Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day.',
+    'Capitalize on low hanging fruit to identify a ballpark value added activity to beta test.',
+  ]
 
   return (
     <Layout>
@@ -76,28 +62,7 @@ const IndexPage = () => {
         <div className="section__content">
           <p>Gochujang offal pok pok bushwick disrupt VHS consequat blue bottle prism. Brooklyn shabby chic hella whatever taiyaki minim sint ex laborum food truck kinfolk farm-to-table. Banh mi health goth vinyl 8-bit whatever. Tofu ennui humblebrag subway tile gluten-free, bitters wayfarers +1 exercitation.</p>
         </div>
-        <div className="services-gallery" ref={ serviceSectionRef }>
-          {
-            imageData.services.nodes.map((img, index) => (
-              <RevealBox
-                key={ img.childImageSharp.id }
-                boxIndex={ index + 1 }
-                currentIndex={ toggledService }
-                clickHandler={ serviceToggleHandler }
-              >
-                <figure>
-                  <p>taiyaki minim sint ex laborum food truck kinfolk farm-to-table. Banh mi health goth vinyl 8-bit whatever.</p>
-                </figure>
-                <figure>
-                  <Img fluid={ img.childImageSharp.fluid } />
-                  <figcaption>{ img.name }</figcaption>
-                </figure>
-              </RevealBox>
-            ))
-          }
-        </div>
-
-
+        <RevealBoxes imageData={ imageData } servicesContents={ servicesContents } />
       </section>
       <section className="section section--grey">
         <h1>Projects.</h1>

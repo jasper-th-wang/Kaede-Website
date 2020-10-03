@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback, useEffect } from "react"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from 'gatsby-image';
 import LeafSVG from '../assets/svgs/leaf.inline.svg';
@@ -8,7 +8,7 @@ import ConstructionSVG from '../assets/svgs/construction.inline.svg';
 import SchedulingSVG from '../assets/svgs/scheduling.inline.svg';
 
 import Layout from "../components/layout"
-import RevealBox from '../components/revealBox';
+import RevealBoxes from '../components/revealBoxes';
 
 import SEO from "../components/seo"
 
@@ -36,25 +36,12 @@ const ServicePage = () => {
         }
       }
   `);
+  const servicesContents = [
+    'taiyaki minim sint ex laborum food truck kinfolk farm-to-table. Banh mi health goth vinyl 8-bit whatever.',
+    'Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day.',
+    'Capitalize on low hanging fruit to identify a ballpark value added activity to beta test.',
+  ]
 
-  const [toggledService, setToggledService] = useState(0);
-
-  const serviceToggleHandler = (index) => {
-    setToggledService(index);
-  }
-
-  const serviceSectionRef = useRef(null);
-
-  const clickToCloseService = useCallback(event => {
-    if (serviceSectionRef.current.contains(event.target)) return;
-    setToggledService(0);
-  }, []);
-  useEffect(() => {
-    document.body.addEventListener('click', clickToCloseService);
-    return () => {
-      document.body.removeEventListener('click', clickToCloseService);
-    }
-  }, [clickToCloseService]);
 
   return (
 
@@ -72,26 +59,8 @@ const ServicePage = () => {
           <LeafSVG className="leaf" />
           <p>Our comprehensive range of services includes aluminum siding, cedar siding, fiber cement siding, insulation installation, siding installation, siding repair, siding sales, soffit installation, soffit repair, trim work, wood siding, hardi siding, flashings and metalwork, outsulation, nichia, al13, alucobond, custom decks & fences...etc.</p>
         </div>
-        <div className="services-gallery" ref={ serviceSectionRef }>
-          {
-            imageData.services.nodes.map((img, index) => (
-              <RevealBox
-                key={ img.childImageSharp.id }
-                boxIndex={ index + 1 }
-                currentIndex={ toggledService }
-                clickHandler={ serviceToggleHandler }
-              >
-                <figure>
-                  <p>taiyaki minim sint ex laborum food truck kinfolk farm-to-table. Banh mi health goth vinyl 8-bit whatever.</p>
-                </figure>
-                <figure>
-                  <Img fluid={ img.childImageSharp.fluid } />
-                  <figcaption>{ img.name }</figcaption>
-                </figure>
-              </RevealBox>
-            ))
-          }
-        </div>
+        <RevealBoxes imageData={ imageData } servicesContents={ servicesContents } />
+
       </section>
       <section className="section section--grey">
         <h1 className="util-lh-1 util-shrink">Project Management.</h1>
