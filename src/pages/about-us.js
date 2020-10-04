@@ -1,7 +1,7 @@
 // layout inspired by https://gmcontractors.co.uk/about/
 
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from 'gatsby-image';
 import LeafSVG from '../assets/svgs/leaf.inline.svg';
 
@@ -43,7 +43,7 @@ const AboutUsPage = () => {
 
   return (
 
-    <Layout>
+    <>
       <SEO title="About Us" />
       <section className="hero">
         <Img fluid={ imageData.hero.childImageSharp.fluid } alt="About-us" className="hero__img" />
@@ -93,10 +93,10 @@ in the building community.</p>
           <p>Let us help you plan, budget and complete your home reonovation ideas!</p>
 
         </div>
-        <button className="small-button">Contact Us</button>
+        <button className="small-button"><Link to="/contact-us">Contact Us</Link></button>
         <LeafSVG className="leaf" />
       </section>
-    </Layout>
+    </>
 
   );
 }

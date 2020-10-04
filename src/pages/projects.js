@@ -34,7 +34,7 @@ const ProjectsPage = () => {
 
   return (
 
-    <Layout>
+    <>
       <SEO title="Projects" />
       <section className="hero">
         <Img fluid={ imageData.home1.childImageSharp.fluid } alt="Dream Home" className="hero__img" />
@@ -43,7 +43,7 @@ const ProjectsPage = () => {
         </div>
       </section>
 
-    </Layout>
+    </>
 
   );
 }

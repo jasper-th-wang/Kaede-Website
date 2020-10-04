@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 import classes from './menuList.module.scss';
-import { Link } from 'gatsby';
+import DelayedLink from '../components/delayedLink';
 
 const MenuList = ({ toggled, toggleMenuHandler }) => {
 
@@ -42,9 +42,9 @@ const MenuList = ({ toggled, toggleMenuHandler }) => {
       transition: {
         // duration: 0.7,
         type: 'spring',
-        mass: 5,
+        mass: 1,
         stiffness: 1000,
-        damping: 300,
+        damping: 200,
       }
     },
     visible: {
@@ -66,9 +66,9 @@ const MenuList = ({ toggled, toggleMenuHandler }) => {
       transition: {
         // duration: 0.7,
         type: 'spring',
-        mass: 5,
+        mass: 1,
         stiffness: 1000,
-        damping: 300,
+        damping: 200,
       }
     },
     visible: {
@@ -90,9 +90,9 @@ const MenuList = ({ toggled, toggleMenuHandler }) => {
           <motion.div key={ index } variants={ divVariants }>
             <motion.li variants={ liVariants }
               onClick={ toggleMenuHandler }>
-              <Link to={ `/${ item[1] }` }>
+              <DelayedLink to={ `/${ item[1] }` }>
                 { item[0] }
-              </Link>
+              </DelayedLink>
             </motion.li>
           </motion.div>
         )) }

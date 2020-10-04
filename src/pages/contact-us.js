@@ -32,23 +32,25 @@ const ContactUsPage = () => {
 
   return (
 
-    <Layout>
+    <>
       <SEO title="Contact Us" />
       <section className="hero">
         <Img fluid={ imageData.home1.childImageSharp.fluid } alt="Dream Home" className="hero__img" />
         <div className="hero__text">
-          <h1>Build<br />with Us!</h1>
+          <h1>Get in<br />Touch!</h1>
         </div>
       </section>
-      <section className="section section--grey">
-        <div className="section__content section__content--no-heading section__content--white-lg">
+      <section className="section section--white">
+        <div className="section__content section__content--no-heading section__content--grey-lg">
           {/* <h1 className="util-lh-1 util-shrink">Build with Us!</h1> */ }
           <p>We would love to hear from you.</p>
           <p>Whether you are planning a project, interested in getting involved with our mission, or inquiring about a job opportunity, please don’t hesitate to reach out. </p>
         </div>
       </section>
       <section className="section section--white">
-        <Img fluid={ imageData.mainLogo.childImageSharp.fluid } />
+        <div className="contact-info__logo">
+          <Img fluid={ imageData.mainLogo.childImageSharp.fluid } />
+        </div>
         <div className="contact-info">
           <p className="contact-info__company-name">Kaede Construction Ltd.</p>
           <div className="contact-info__address">
@@ -73,11 +75,7 @@ const ContactUsPage = () => {
       <section className="section section--grey">
         <ContactForm />
       </section>
-
-
-
-
-    </Layout>
+    </>
 
   );
 }

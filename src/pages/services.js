@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from 'gatsby-image';
 import LeafSVG from '../assets/svgs/leaf.inline.svg';
 import ArchitectSVG from '../assets/svgs/architect.inline.svg';
@@ -45,23 +45,22 @@ const ServicePage = () => {
 
   return (
 
-    <Layout>
+    <>
       <SEO title="Services" />
       <section className="hero">
         <Img fluid={ imageData.hero.childImageSharp.fluid } alt="Dream Home" className="hero__img" />
         <div className="hero__text">
-          <h2>Start a Project<br />With Us</h2>
+          <h1>Services</h1>
         </div>
       </section>
       <section className="section section--white">
-        <h1 className="util-shrink">Our Services</h1>
-        <div className="section__content">
+        <div className="section__content" style={ { marginBottom: '3rem' } }>
           <LeafSVG className="leaf" />
           <p>Our comprehensive range of services includes aluminum siding, cedar siding, fiber cement siding, insulation installation, siding installation, siding repair, siding sales, soffit installation, soffit repair, trim work, wood siding, hardi siding, flashings and metalwork, outsulation, nichia, al13, alucobond, custom decks & fences...etc.</p>
         </div>
         <RevealBoxes imageData={ imageData } servicesContents={ servicesContents } />
-
       </section>
+
       <section className="section section--grey">
         <h1 className="util-lh-1 util-shrink">Project Management.</h1>
         <div className="section__content">
@@ -92,11 +91,11 @@ const ServicePage = () => {
           <p>Let us help you plan, budget and complete your home reonovation ideas!</p>
 
         </div>
-        <button className="small-button">Contact Us</button>
+        <button className="small-button"><Link to="/contact-us">Contact Us</Link></button>
         <LeafSVG className="leaf" />
       </section>
 
-    </Layout>
+    </>
 
   );
 }

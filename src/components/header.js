@@ -11,10 +11,18 @@ import LeafSVG from '../assets/svgs/leaf.inline.svg';
 
 const Header = ({ siteTitle }) => {
 
-  const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState(false); // background
+  const [toggled, setToggled] = useState(false); // menuList, for delay animation 
 
   const toggleMenu = () => {
+    //set time out for clicked
+    setTimeout(() => setClicked(prevState => !prevState), 500)
+    setToggled(prevState => !prevState);
+  }
+
+  const toggleMenuBackground = () => {
     setClicked(prevState => !prevState);
+    setToggled(prevState => !prevState);
   }
 
 
@@ -43,12 +51,12 @@ const Header = ({ siteTitle }) => {
             ${ clicked ? classes.isActive : null }
             ` }
           type="button"
-          onClick={ toggleMenu }>
+          onClick={ toggleMenuBackground }>
           <span className={ classes.hamburgerBox }>
             <span className={ classes.hamburgerInner }></span>
           </span>
         </button>
-        <MenuList toggled={ clicked } toggleMenuHandler={ toggleMenu } />
+        <MenuList toggled={ toggled } toggleMenuHandler={ toggleMenu } />
       </nav>
     </header>
   );

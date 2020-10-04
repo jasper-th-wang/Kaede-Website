@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from 'gatsby-image';
 import LeafSVG from '../assets/svgs/leaf.inline.svg';
 
@@ -41,7 +41,7 @@ const IndexPage = () => {
   ]
 
   return (
-    <Layout>
+    <>
       <SEO title="Home" />
       <section className="hero">
         <Img fluid={ imageData.home1.childImageSharp.fluid } alt="Dream Home" className="hero__img" />
@@ -78,11 +78,10 @@ const IndexPage = () => {
           <p>Let us help you plan, budget and complete your home reonovation ideas!</p>
 
         </div>
-        <button className="small-button">Contact Us</button>
+        <button className="small-button"><Link to="/contact-us">Contact Us</Link></button>
         <LeafSVG className="leaf" />
       </section>
-    </Layout>
-
+    </>
   );
 }
 

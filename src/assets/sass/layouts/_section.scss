@@ -37,6 +37,10 @@
     position: relative;
     padding: 3rem 0 3rem 0;
 
+    p:not(:last-child) {
+      margin-block-end: 1em;
+    }
+
     &--no-heading {
       padding: 0;
     }
@@ -44,7 +48,6 @@
     &--grey-lg {
       p {
         color: #5c5c5c;
-        margin-block-end: 1em;
         &:first-child {
           font-size: 1.25rem;
           color: $primary-grey;
@@ -54,7 +57,6 @@
     &--white-lg {
       p {
         color: #ffffff;
-        margin-block-end: 1em;
         &:first-child {
           font-size: 1.25rem;
         }

@@ -12,6 +12,10 @@ body {
 .contact-info {
   margin-top: 3rem;
 
+  &__logo {
+    width: 70%;
+  }
+
   p {
     font-size: 1.25em;
   }

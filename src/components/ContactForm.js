@@ -1,6 +1,11 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useEffect } from 'react';
 import classes from './ContactForm.module.scss';
 
+const encodeData = (data) => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+}
 
 const ContactForm = () => {
 
@@ -18,49 +23,41 @@ const ContactForm = () => {
     message: 'Please enter your message',
   }
 
-  const formReducer = (prevState, { type, key, value }) => {
-    switch (type) {
-      case 'update':
-        return { ...prevState, [key]: value };
-        break;
-      case 'submit':
-        return { ...initialForm };
-      default:
-        throw new Error('there is an error in the form');
-    }
-  }
+  const [formState, setFormState] = useState(initialForm)
 
-  const [formState, dispatchForm] = useReducer(formReducer, initialForm);
+  const updateFormHandler = ({ target }) => {
+    const name = target.name;
+    const value = target.value;
 
-  const updateFormHandler = (event) => {
-    dispatchForm({ type: 'update', key: event.target.name, value: event.target.value });
+    setFormState(prevState => {
+      return { ...prevState, [name]: value }
+    });
+
   }
 
   // test submitting form to firebase
+  // body should jjust be encodeData(formState);
   const submitFormHandler = (event) => {
     event.preventDefault();
     fetch('https://react-hooks-update-e68e5.firebaseio.com/formTest.json', {
       method: 'POST',
-      body: JSON.stringify(formState),
+      body: JSON.stringify({ form: encodeData(formState) }),
       headers: { 'Content-Type': 'application/json' }
     }).then(res => {
+      if (!res.ok) throw new Error('Error occured when submitting this form');
+      console.log(encodeData(formState));
       console.log('success!');
-      dispatchForm({ type: 'submit' });
+      setFormState(initialForm);
     }).catch(error => {
-      console.log('error');
-    })
+      console.log(error);
+    });
   }
 
+  // // test
+  // useEffect(() => {
+  //   console.log(formState);
+  // }, [formState])
 
-  useEffect(() => {
-    console.log(formState);
-  }, [formState])
-
-  const encodeData = (data) => {
-    Object.keys(data)
-      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-      .join('&');
-  }
 
   return (
 
