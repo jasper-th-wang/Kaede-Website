@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Jasper Wang",
   "dependencies": {
+    "@hookform/resolvers": "^1.0.0",
     "body-scroll-lock": "^3.1.5",
     "framer-motion": "^2.7.5",
     "gatsby": "^2.24.61",
@@ -22,7 +23,9 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-hook-form": "^6.9.0",
+    "yup": "^0.29.3"
   },
   "devDependencies": {
     "prettier": "2.1.1"

@@ -1,5 +1,4 @@
-import PropTypes from "prop-types"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 import MenuList from './menuList';
 import classes from "./header.module.scss";
@@ -8,21 +7,36 @@ import logoLeaf from '../assets/images/logo/kaede_logo_leaf.png';
 import LeafSVG from '../assets/svgs/leaf.inline.svg';
 
 
+const Header = ({ siteTitle, location }) => {
 
-const Header = ({ siteTitle }) => {
+  const [backgroundState, setBackgroundState] = useState(false); // background
+  const [menuListState, setMenuListState] = useState(false); // menuList, for delay animation 
+  const [disableHamburgerBtn, setDisableHamburgerBtn] = useState(false);
 
-  const [clicked, setClicked] = useState(false); // background
-  const [toggled, setToggled] = useState(false); // menuList, for delay animation 
+  useEffect(() => {
+    console.log(location.action);
+    if (location.action === 'PUSH') {
+      closeMenuBackground();
+    }
+  }, [location]);
 
-  const toggleMenu = () => {
-    //set time out for clicked
-    setTimeout(() => setClicked(prevState => !prevState), 500)
-    setToggled(prevState => !prevState);
+  const closeMenuBackground = () => {
+
+    setTimeout(() => {
+      setBackgroundState(false);
+      setDisableHamburgerBtn(false);
+
+    }, 300);
   }
 
-  const toggleMenuBackground = () => {
-    setClicked(prevState => !prevState);
-    setToggled(prevState => !prevState);
+  const closeMenuList = () => {
+    setDisableHamburgerBtn(true);
+    setMenuListState(false);
+  }
+
+  const hamburgerToggle = () => {
+    setBackgroundState(prevState => !prevState);
+    setMenuListState(prevState => !prevState);
   }
 
 
@@ -39,7 +53,7 @@ const Header = ({ siteTitle }) => {
 
       <nav>
         <div className={
-          clicked ?
+          backgroundState ?
             `${ classes.menuBackground } ${ classes.menuBackgroundClicked }`
             : classes.menuBackground
         }>
@@ -48,27 +62,22 @@ const Header = ({ siteTitle }) => {
           className={
             `${ classes.hamburger } 
             ${ classes.hamburgerCollapse } 
-            ${ clicked ? classes.isActive : null }
+            ${ backgroundState ? classes.isActive : null }
             ` }
           type="button"
-          onClick={ toggleMenuBackground }>
+          onClick={ hamburgerToggle }
+          disabled={ disableHamburgerBtn }
+        >
           <span className={ classes.hamburgerBox }>
             <span className={ classes.hamburgerInner }></span>
           </span>
         </button>
-        <MenuList toggled={ toggled } toggleMenuHandler={ toggleMenu } />
+        <MenuList toggled={ menuListState } toggleMenuHandler={ closeMenuList } />
       </nav>
     </header>
   );
 
 }
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header

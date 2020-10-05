@@ -44,7 +44,6 @@ const Carousel = ({ imageArray, mode }) => {
 
   return (
     <AnimatePresence exitBeforeEnter>
-      {console.log(mode) }
       {
         imageArray.map((item, index) => (
           currentImage === index &&

@@ -4,8 +4,6 @@ import Img from 'gatsby-image';
 // import LeafSVG from '../assets/svgs/leaf.inline.svg';
 import FacebookIcon from '../assets/svgs/facebook.inline.svg';
 import InstagramIcon from '../assets/svgs/instagram.inline.svg';
-
-import Layout from "../components/layout"
 import ContactForm from '../components/ContactForm';
 import SEO from "../components/seo"
 

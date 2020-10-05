@@ -1,5 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import classes from './ContactForm.module.scss';
+import { useForm } from 'react-hook-form';
+
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
+
+const phoneValidate = /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/;
+
+const formSchema = yup.object().shape({
+  name: yup.string().required(),
+  email: yup.string().email().required(),
+  phone: yup.string().required().matches(phoneValidate, 'Your phone number must match the following format: (111) 222-3333, 1112223333, 111-222-3333'),
+  message: yup.string().required(),
+});
 
 const encodeData = (data) => {
   return Object.keys(data)
@@ -8,8 +21,12 @@ const encodeData = (data) => {
 }
 
 const ContactForm = () => {
+  const { register, errors, handleSubmit } = useForm({
+    resolver: yupResolver(formSchema),
+  });
 
-  const initialForm = {
+
+  const formFields = {
     name: '',
     email: '',
     phone: '',
@@ -23,64 +40,57 @@ const ContactForm = () => {
     message: 'Please enter your message',
   }
 
-  const [formState, setFormState] = useState(initialForm)
-
-  const updateFormHandler = ({ target }) => {
-    const name = target.name;
-    const value = target.value;
-
-    setFormState(prevState => {
-      return { ...prevState, [name]: value }
-    });
-
-  }
 
   // test submitting form to firebase
   // body should jjust be encodeData(formState);
-  const submitFormHandler = (event) => {
-    event.preventDefault();
+  const submitFormHandler = (data) => {
     fetch('https://react-hooks-update-e68e5.firebaseio.com/formTest.json', {
       method: 'POST',
-      body: JSON.stringify({ form: encodeData(formState) }),
+      body: JSON.stringify({ form: encodeData(data) }),
       headers: { 'Content-Type': 'application/json' }
     }).then(res => {
       if (!res.ok) throw new Error('Error occured when submitting this form');
-      console.log(encodeData(formState));
+      console.log(data);
+      console.log(encodeData(data));
       console.log('success!');
-      setFormState(initialForm);
+      // here you should redirect to a success page!
     }).catch(error => {
+      // here you should redirect to a error page!
       console.log(error);
     });
   }
 
-  // // test
-  // useEffect(() => {
-  //   console.log(formState);
-  // }, [formState])
+  // const testSubmit = (data) => {
+  //   console.log(data);
+  // }
 
 
   return (
 
-    <form className={ classes.contactForm } onSubmit={ submitFormHandler }>
+    <form className={ classes.contactForm } onSubmit={ handleSubmit(submitFormHandler) }>
 
       {
-        Object.keys(initialForm).map(key => (
+        Object.keys(formFields).map(key => (
           <label key={ key }>
             {`${ key }:` }
             { !(key === 'message') ?
               <input
+                ref={ register }
                 type="text"
                 name={ key }
                 placeholder={ placeHolder[key] }
-                value={ formState[key] }
-                onChange={ updateFormHandler } /> :
+              // value={ formState[key] } onChange={ updateFormHandler } 
+              /> :
               <textarea
+                ref={ register }
                 type="text"
                 name={ key }
                 placeholder={ placeHolder[key] }
-                value={ formState[key] }
-                onChange={ updateFormHandler }
+              // value={ formState[key] } onChange={ updateFormHandler }
               ></textarea>
+            }
+            {
+              errors[key] && <span className={ classes.error }>{ errors[key].message }</span>
             }
           </label>
         ))

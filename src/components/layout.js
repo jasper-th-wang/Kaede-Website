@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import classes from "./layout.module.scss";
 import '../assets/sass/main.scss';
+import { Location } from '@reach/router'
 
 
 const Layout = ({ children }) => {
@@ -20,7 +21,13 @@ const Layout = ({ children }) => {
 
   return (
     <div className={ classes.gridContainer }>
-      <Header siteTitle={ data.site.siteMetadata.title } />
+      <Location>
+        {
+          ({ location }) => (
+            <Header siteTitle={ data.site.siteMetadata.title } location={ location } />
+          )
+        }
+      </Location>
       <div>
         <main>
           { children }

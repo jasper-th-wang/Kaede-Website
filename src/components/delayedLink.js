@@ -3,13 +3,15 @@ import { navigate } from "gatsby"
 
 const DelayedLink = ({ to, children }) => {
 
-  const handleClicked = () => {
-    const navigateTimer = setTimeout(() => {
+  const handleClicked = (e) => {
+    e.preventDefault();
+
+    setTimeout(() => {
       navigate(to);
     }, 400)
   }
   return (
-    <a onClick={ handleClicked }>{ children }</a>
+    <a href={ to } onClick={ handleClicked }>{ children }</a>
   );
 }
 

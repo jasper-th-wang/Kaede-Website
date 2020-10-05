@@ -6,8 +6,6 @@ import ArchitectSVG from '../assets/svgs/architect.inline.svg';
 import BuildingSVG from '../assets/svgs/building.inline.svg';
 import ConstructionSVG from '../assets/svgs/construction.inline.svg';
 import SchedulingSVG from '../assets/svgs/scheduling.inline.svg';
-
-import Layout from "../components/layout"
 import RevealBoxes from '../components/revealBoxes';
 
 import SEO from "../components/seo"

@@ -2,8 +2,6 @@ import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from 'gatsby-image';
 import LeafSVG from '../assets/svgs/leaf.inline.svg';
-
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RevealBoxes from '../components/revealBoxes';
 import Carousel from '../components/carousel';
