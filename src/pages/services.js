@@ -7,6 +7,7 @@ import BuildingSVG from '../assets/svgs/building.inline.svg';
 import ConstructionSVG from '../assets/svgs/construction.inline.svg';
 import SchedulingSVG from '../assets/svgs/scheduling.inline.svg';
 import RevealBoxes from '../components/revealBoxes';
+import DesktopPageTransition from '../components/desktopPageTransition';
 
 import SEO from "../components/seo"
 
@@ -43,7 +44,9 @@ const ServicePage = () => {
 
   return (
 
-    <>
+    <DesktopPageTransition>
+
+
       <SEO title="Services" />
       <section className="hero">
         <Img fluid={ imageData.hero.childImageSharp.fluid } alt="Dream Home" className="hero__img" />
@@ -64,7 +67,7 @@ const ServicePage = () => {
         <div className="section__content">
           <p>Gochujang offal pok pok bushwick disrupt VHS consequat blue bottle prism. Brooklyn shabby chic hella whatever taiyaki minim sint ex laborum food truck kinfolk farm-to-table.</p>
         </div>
-        <div className="project-management-list">
+        <div className="info-cards-container">
           <figure className="info-card">
             <ConstructionSVG className="info-card__img" />
             <figcaption className="info-card__text">Sourcing of Materials</figcaption>
@@ -93,7 +96,7 @@ const ServicePage = () => {
         <LeafSVG className="leaf" />
       </section>
 
-    </>
+    </DesktopPageTransition>
 
   );
 }

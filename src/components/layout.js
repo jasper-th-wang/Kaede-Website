@@ -1,12 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
 import Header from "./header"
 import classes from "./layout.module.scss";
 import '../assets/sass/main.scss';
 import { Location } from '@reach/router'
 
+import { AnimatePresence } from 'framer-motion';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -31,6 +31,7 @@ const Layout = ({ children }) => {
       <div className={ classes.mainArea }>
         <main>
           { children }
+
         </main>
         <footer>Copyright &#169; 2020 Kaede Construction Ltd. All rights reserved.</footer>
       </div>

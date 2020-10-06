@@ -96,7 +96,7 @@ const Header = ({ siteTitle, location }) => {
         </button>
         {
           isDesktopState ?
-            <MenuListDesktop /> :
+            <MenuListDesktop location={ location } /> :
             <MenuList toggled={ menuListState } toggleMenuHandler={ closeMenuList } />
         }
       </nav>

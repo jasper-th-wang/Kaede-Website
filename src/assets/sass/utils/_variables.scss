@@ -9,4 +9,7 @@ $secondary-grey: #949494;
   @media only screen and (min-width: 768px) {
     --side-margin: 3rem;
   }
+  @media only screen and (min-width: 1200px) {
+    --side-margin: 7%;
+  }
 }

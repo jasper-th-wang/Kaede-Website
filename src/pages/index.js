@@ -5,7 +5,7 @@ import LeafSVG from '../assets/svgs/leaf.inline.svg';
 import SEO from "../components/seo"
 import RevealBoxes from '../components/revealBoxes';
 import Carousel from '../components/carousel';
-
+import DesktopPageTransition from '../components/desktopPageTransition';
 
 
 const IndexPage = () => {
@@ -39,7 +39,7 @@ const IndexPage = () => {
   ]
 
   return (
-    <>
+    <DesktopPageTransition>
       <SEO title="Home" />
       <section className="hero">
         <Img fluid={ imageData.home1.childImageSharp.fluid } alt="Dream Home" className="hero__img" />
@@ -79,7 +79,7 @@ const IndexPage = () => {
         <button className="small-button"><Link to="/contact-us">Contact Us</Link></button>
         <LeafSVG className="leaf" />
       </section>
-    </>
+    </DesktopPageTransition>
   );
 }
 

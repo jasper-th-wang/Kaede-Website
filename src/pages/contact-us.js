@@ -6,6 +6,7 @@ import FacebookIcon from '../assets/svgs/facebook.inline.svg';
 import InstagramIcon from '../assets/svgs/instagram.inline.svg';
 import ContactForm from '../components/ContactForm';
 import SEO from "../components/seo"
+import DesktopPageTransition from '../components/desktopPageTransition';
 
 
 const ContactUsPage = () => {
@@ -30,7 +31,7 @@ const ContactUsPage = () => {
 
   return (
 
-    <>
+    <DesktopPageTransition>
       <SEO title="Contact Us" />
       <section className="hero">
         <Img fluid={ imageData.home1.childImageSharp.fluid } alt="Dream Home" className="hero__img" />
@@ -73,7 +74,7 @@ const ContactUsPage = () => {
       <section className="section section--grey">
         <ContactForm />
       </section>
-    </>
+    </DesktopPageTransition>
 
   );
 }

@@ -6,6 +6,7 @@ import Img from 'gatsby-image';
 import LeafSVG from '../assets/svgs/leaf.inline.svg';
 import SEO from "../components/seo"
 import Carousel from '../components/carousel';
+import DesktopPageTransition from '../components/desktopPageTransition';
 
 
 const AboutUsPage = () => {
@@ -41,7 +42,7 @@ const AboutUsPage = () => {
 
   return (
 
-    <>
+    <DesktopPageTransition>
       <SEO title="About Us" />
       <section className="hero">
         <Img fluid={ imageData.hero.childImageSharp.fluid } alt="About-us" className="hero__img" />
@@ -94,7 +95,7 @@ in the building community.</p>
         <button className="small-button"><Link to="/contact-us">Contact Us</Link></button>
         <LeafSVG className="leaf" />
       </section>
-    </>
+    </DesktopPageTransition>
 
   );
 }
