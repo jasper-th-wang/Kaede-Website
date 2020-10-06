@@ -1,35 +1,63 @@
 @import "../assets/sass/utils/variables";
 
 .header {
+  position: relative; // menuList relies on this reference!
+  padding: 0 var(--side-margin);
   display: flex;
   justify-content: space-between;
   height: 4rem;
   background-color: $primary-grey;
   align-items: center;
+
+  @media only screen and (min-width: 1200px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15rem;
+    height: 100vh;
+    display: grid;
+
+    grid-template-rows: [marginTop] 1fr [logo] 1fr [menuList] 2fr [marginBottom] 1fr;
+  }
+
   nav {
-    margin-left: $side-margin;
+    margin-left: var(--side-margin);
     z-index: 1000;
+
+    @media only screen and (min-width: 1200px) {
+      grid-area: menuList;
+      margin-left: 0;
+    }
   }
 }
 
 .logoBox {
   position: relative;
+
+  @media only screen and (min-width: 1200px) {
+    grid-area: logo;
+    justify-self: end;
+  }
   &__leaf {
     position: absolute;
     bottom: -0.2rem;
-    // right: -3rem;
-    left: 4.8rem;
+    left: 3.8rem;
     width: 3rem;
     transform: rotate(40deg);
+
+    @media only screen and (min-width: 1200px) {
+      display: none;
+    }
   }
 }
 
 .logo {
   position: relative;
   width: 5rem;
-  // height: 100%;
-  padding-left: $side-margin;
   z-index: 10;
+  @media only screen and (min-width: 1200px) {
+    width: 10rem;
+  }
 }
 
 .menuBackground {
@@ -40,6 +68,10 @@
   // right: -80vh;
   top: -80vh;
   right: -80vh;
+
+  @media screen and (min-width: 1200px) {
+    display: none;
+  }
 
   @media screen and (orientation: landscape) {
     top: -100vw;
@@ -56,6 +88,11 @@
     width: 200vh;
     transition: all 1s cubic-bezier(0.33, 1, 0.68, 1);
 
+    @media screen and (min-width: 580px) {
+      height: 250vh;
+      width: 250vh;
+    }
+
     @media screen and (orientation: landscape) {
       height: 250vw;
       width: 250vw;
@@ -65,7 +102,7 @@
 
 // hamburger menu
 .hamburger {
-  padding: $side-margin $side-margin;
+  padding: 15px 0;
   display: inline-block;
   cursor: pointer;
   transition-property: opacity, filter;
@@ -78,6 +115,10 @@
   border: 0;
   margin: 0;
   overflow: visible;
+
+  @media only screen and (min-width: 1200px) {
+    display: none;
+  }
 }
 .hamburger:hover {
   opacity: 0.7;

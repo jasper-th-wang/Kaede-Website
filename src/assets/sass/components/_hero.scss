@@ -5,6 +5,10 @@
     // object-fit: cover;
     // filter: contrast(75%);
     @include dimImage;
+
+    @media only screen and (min-width: 1200px) {
+      height: 85vh;
+    }
   }
 
   &__text {
@@ -12,33 +16,59 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    margin-right: $side-margin;
+    margin-right: var(--side-margin);
     color: #ffffff;
 
     &--home {
-      bottom: ($side-margin / 2);
+      bottom: calc(var(--side-margin) / 2);
+
+      @media only screen and (min-width: 768px) {
+        bottom: 40%;
+      }
+
+      &__br1 {
+        @media only screen and (min-width: 768px) {
+          display: none;
+        }
+      }
+      &__br2 {
+        @media only screen and (min-width: 768px) {
+          display: none;
+        }
+      }
+      h2 {
+        margin-top: 0;
+        margin-bottom: 0;
+        @media only screen and (min-width: 768px) {
+          font-size: 3.5em;
+        }
+      }
+      h3 {
+        font-size: 2em;
+        font-weight: 300;
+        margin-top: 0;
+        margin-bottom: 0rem;
+        @media only screen and (min-width: 768px) {
+          font-size: 1.5em;
+        }
+      }
     }
 
     h1 {
       // color: currentColor;
       margin: 0;
-    }
-
-    h2 {
-      margin-top: 0;
-      margin-bottom: 0;
-      // line-height: 1.15;
-    }
-    h3 {
-      font-size: 2rem;
-      font-weight: 300;
-      margin-top: 0;
-      margin-bottom: 0rem;
+      @media only screen and (min-width: 768px) {
+        // font-size: 6em;
+      }
     }
 
     span {
       color: $primary-grey;
       font-weight: 500;
+
+      @media only screen and (min-width: 576px) {
+        color: #fff;
+      }
     }
   }
 }

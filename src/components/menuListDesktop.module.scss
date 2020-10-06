@@ -1,0 +1,11 @@
+.menuListDesktop {
+  list-style: none;
+  color: #fff;
+  text-align: left;
+
+  li {
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+}

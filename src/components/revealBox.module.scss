@@ -10,7 +10,7 @@
   transition: 0.5s all;
 
   &:not(:last-child) {
-    margin-bottom: $side-margin;
+    margin-bottom: var(--side-margin);
   }
 
   p {
@@ -25,11 +25,18 @@
   }
   figure {
     height: 15rem;
+    @media only screen and (min-width: 768px) {
+      height: 30rem;
+    }
+
     position: relative;
     margin: 0;
 
     div {
       height: 15rem;
+      @media only screen and (min-width: 768px) {
+        height: 30rem;
+      }
       @include dimImage;
 
       img {

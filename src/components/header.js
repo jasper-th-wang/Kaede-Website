@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useCallback } from "react"
 
 import MenuList from './menuList';
+import MenuListDesktop from './menuListDesktop';
 import classes from "./header.module.scss";
 import logo from '../assets/images/logo/kaede_text-white.png';
 import logoLeaf from '../assets/images/logo/kaede_logo_leaf.png';
@@ -9,6 +10,26 @@ import LeafSVG from '../assets/svgs/leaf.inline.svg';
 
 const Header = ({ siteTitle, location }) => {
 
+  // Detect whether the screen size is over 1200px
+  const [isDesktopState, setIsDesktopState] = useState(false);
+
+  useEffect(() => {
+    const isDesktop = window.matchMedia('(min-width: 1200px)');
+    console.log(isDesktop);
+
+    isDesktop.matches ? setIsDesktopState(true) : setIsDesktopState(false);
+
+    const isDesktopCallback = (e) => {
+      e.matches ? setIsDesktopState(true) : setIsDesktopState(false);
+    }
+
+    isDesktop.addEventListener('change', isDesktopCallback);
+
+    return () => isDesktop.removeEventListener('change', isDesktopCallback);
+
+  }, [setIsDesktopState])
+
+  // handling hamburger button and menu background animation
   const [backgroundState, setBackgroundState] = useState(false); // background
   const [menuListState, setMenuListState] = useState(false); // menuList, for delay animation 
   const [disableHamburgerBtn, setDisableHamburgerBtn] = useState(false);
@@ -42,11 +63,12 @@ const Header = ({ siteTitle, location }) => {
 
   return (
     <header className={ classes.header }>
+
       <div className={ classes.logoBox }>
         <LeafSVG className={ classes.logoBox__leaf } />
         <picture>
-          <source media="(max-width: 768px)" srcSet={ logo } />
-          <source media="(min-width: 767px)" srcSet={ logoLeaf } />
+          <source media="(max-width: 1199px)" srcSet={ logo } />
+          <source media="(min-width: 1200px)" srcSet={ logoLeaf } />
           <img src={ logo } alt="Kaede Construction" className={ classes.logo } />
         </picture>
       </div>
@@ -72,8 +94,13 @@ const Header = ({ siteTitle, location }) => {
             <span className={ classes.hamburgerInner }></span>
           </span>
         </button>
-        <MenuList toggled={ menuListState } toggleMenuHandler={ closeMenuList } />
+        {
+          isDesktopState ?
+            <MenuListDesktop /> :
+            <MenuList toggled={ menuListState } toggleMenuHandler={ closeMenuList } />
+        }
       </nav>
+
     </header>
   );
 

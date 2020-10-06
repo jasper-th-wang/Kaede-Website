@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  padding: 3rem $side-margin 3rem $side-margin;
+  padding: 3rem var(--side-margin) 3rem var(--side-margin);
 
   p {
     margin: 0;
@@ -12,7 +12,7 @@
   }
 
   &--intro {
-    padding: 5rem $side-margin 5rem $side-margin;
+    padding: 5rem var(--side-margin) 5rem var(--side-margin);
   }
 
   &--white {
@@ -27,6 +27,11 @@
   &--grey {
     background-color: $primary-grey;
     color: #ffffff;
+
+    @media only screen and (min-width: 1200px) {
+      // temporary color
+      background-color: $secondary-grey;
+    }
 
     p {
       color: currentColor;
@@ -47,7 +52,7 @@
 
     &--grey-lg {
       p {
-        color: #5c5c5c;
+        color: $secondary-grey;
         &:first-child {
           font-size: 1.25rem;
           color: $primary-grey;

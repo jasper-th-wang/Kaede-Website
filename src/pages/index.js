@@ -44,8 +44,8 @@ const IndexPage = () => {
       <section className="hero">
         <Img fluid={ imageData.home1.childImageSharp.fluid } alt="Dream Home" className="hero__img" />
         <div className="hero__text hero__text--home">
-          <h2>Building<br />Dreams</h2>
-          <h3>from concept<br />to <span>completion</span></h3>
+          <h2>Building<br className="hero__text--home__br1" /> Dreams</h2>
+          <h3>from concept<br className="hero__text--home__br2" /> to <span>completion</span></h3>
         </div>
       </section>
       <section className="section section--white section--intro">

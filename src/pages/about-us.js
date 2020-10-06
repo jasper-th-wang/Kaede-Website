@@ -46,7 +46,7 @@ const AboutUsPage = () => {
       <section className="hero">
         <Img fluid={ imageData.hero.childImageSharp.fluid } alt="About-us" className="hero__img" />
         <div className="hero__text">
-          <h1>About Us</h1>
+          <h1>About Us.</h1>
         </div>
       </section>
       <section className="section section--white">

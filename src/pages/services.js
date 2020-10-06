@@ -48,7 +48,7 @@ const ServicePage = () => {
       <section className="hero">
         <Img fluid={ imageData.hero.childImageSharp.fluid } alt="Dream Home" className="hero__img" />
         <div className="hero__text">
-          <h1>Services</h1>
+          <h1>Services.</h1>
         </div>
       </section>
       <section className="section section--white">

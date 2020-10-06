@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
           )
         }
       </Location>
-      <div>
+      <div className={ classes.mainArea }>
         <main>
           { children }
         </main>

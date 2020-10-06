@@ -8,7 +8,7 @@ li {
 
 .menu-list {
   position: absolute;
-  top: 45%;
+  top: calc(50vh - 4rem);
   left: 50%;
   transform: translateX(-50%);
   list-style-type: none;
