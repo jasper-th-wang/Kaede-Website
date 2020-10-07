@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 import classes from './menuListDesktop.module.scss';
 // import DelayedLink from './delayedLink';

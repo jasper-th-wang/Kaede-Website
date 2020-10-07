@@ -7,7 +7,6 @@ import BuildingSVG from '../assets/svgs/building.inline.svg';
 import ConstructionSVG from '../assets/svgs/construction.inline.svg';
 import SchedulingSVG from '../assets/svgs/scheduling.inline.svg';
 import RevealBoxes from '../components/revealBoxes';
-import DesktopPageTransition from '../components/desktopPageTransition';
 
 import SEO from "../components/seo"
 
@@ -35,18 +34,11 @@ const ServicePage = () => {
         }
       }
   `);
-  const servicesContents = [
-    'taiyaki minim sint ex laborum food truck kinfolk farm-to-table. Banh mi health goth vinyl 8-bit whatever.',
-    'Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day.',
-    'Capitalize on low hanging fruit to identify a ballpark value added activity to beta test.',
-  ]
 
 
   return (
 
-    <DesktopPageTransition>
-
-
+    <>
       <SEO title="Services" />
       <section className="hero">
         <Img fluid={ imageData.hero.childImageSharp.fluid } alt="Dream Home" className="hero__img" />
@@ -59,7 +51,7 @@ const ServicePage = () => {
           <LeafSVG className="leaf" />
           <p>Our comprehensive range of services includes aluminum siding, cedar siding, fiber cement siding, insulation installation, siding installation, siding repair, siding sales, soffit installation, soffit repair, trim work, wood siding, hardi siding, flashings and metalwork, outsulation, nichia, al13, alucobond, custom decks & fences...etc.</p>
         </div>
-        <RevealBoxes imageData={ imageData } servicesContents={ servicesContents } />
+        <RevealBoxes imageData={ imageData } />
       </section>
 
       <section className="section section--grey">
@@ -96,7 +88,7 @@ const ServicePage = () => {
         <LeafSVG className="leaf" />
       </section>
 
-    </DesktopPageTransition>
+    </>
 
   );
 }

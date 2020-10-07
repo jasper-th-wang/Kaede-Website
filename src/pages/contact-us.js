@@ -6,7 +6,6 @@ import FacebookIcon from '../assets/svgs/facebook.inline.svg';
 import InstagramIcon from '../assets/svgs/instagram.inline.svg';
 import ContactForm from '../components/ContactForm';
 import SEO from "../components/seo"
-import DesktopPageTransition from '../components/desktopPageTransition';
 
 
 const ContactUsPage = () => {
@@ -31,7 +30,7 @@ const ContactUsPage = () => {
 
   return (
 
-    <DesktopPageTransition>
+    <>
       <SEO title="Contact Us" />
       <section className="hero">
         <Img fluid={ imageData.home1.childImageSharp.fluid } alt="Dream Home" className="hero__img" />
@@ -46,35 +45,37 @@ const ContactUsPage = () => {
           <p>Whether you are planning a project, interested in getting involved with our mission, or inquiring about a job opportunity, please don’t hesitate to reach out. </p>
         </div>
       </section>
-      <section className="section section--white">
-        <div className="contact-info__logo">
-          <Img fluid={ imageData.mainLogo.childImageSharp.fluid } />
-        </div>
-        <div className="contact-info">
-          <p className="contact-info__company-name">Kaede Construction Ltd.</p>
-          <div className="contact-info__address">
-            <p>242 4th Street</p>
-            <p>North Vancouver, BC</p>
-            <p>Canada V7M 1H7</p>
+      <div className="contact-container" >
+        <section className="section section--white contact-container__info">
+          <div className="contact-info__logo">
+            <Img fluid={ imageData.mainLogo.childImageSharp.fluid } />
           </div>
-          <div className="contact-info__connect">
-            <p>brian@kaedeconstruction.com</p>
-            <p>604-970-5240</p>
-            <div className="social-media-icons">
-              <a href="https://www.facebook.com/kaedeconstruction" className="social-media-icons__icon">
-                <FacebookIcon />
-              </a>
-              <a href="https://www.instagram.com/kaedeconstruction/" className="social-media-icons__icon">
-                <InstagramIcon />
-              </a>
+          <div className="contact-info">
+            <p className="contact-info__company-name">Kaede Construction Ltd.</p>
+            <div className="contact-info__address">
+              <p>242 4th Street</p>
+              <p>North Vancouver, BC</p>
+              <p>Canada V7M 1H7</p>
+            </div>
+            <div className="contact-info__connect">
+              <p>brian@kaedeconstruction.com</p>
+              <p>604-970-5240</p>
+              <div className="social-media-icons">
+                <a href="https://www.facebook.com/kaedeconstruction" className="social-media-icons__icon">
+                  <FacebookIcon />
+                </a>
+                <a href="https://www.instagram.com/kaedeconstruction/" className="social-media-icons__icon">
+                  <InstagramIcon />
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      <section className="section section--grey">
-        <ContactForm />
-      </section>
-    </DesktopPageTransition>
+        </section>
+        <section className="section section--grey contact-container__form">
+          <ContactForm />
+        </section>
+      </div>
+    </>
 
   );
 }

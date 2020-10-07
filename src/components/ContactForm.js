@@ -96,7 +96,7 @@ const ContactForm = () => {
         ))
       }
 
-      <button type="submit" className="small-button small-button--white-text">Submit</button>
+      <button type="submit" className="small-button small-button--contact">Submit</button>
 
 
     </form >

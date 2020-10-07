@@ -18,8 +18,8 @@ body {
   &__logo {
     width: 70%;
 
-    @media only screen and (min-width: 768px) {
-      width: 40%;
+    @media only screen and (min-width: 1200px) {
+      width: 80%;
     }
   }
 
@@ -33,5 +33,58 @@ body {
 
   &__connect {
     margin-top: 1rem;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  .contact-container {
+    display: grid;
+    grid-template-columns: [form] 2fr [info] 1fr;
+    padding-left: var(--side-margin);
+    padding-right: var(--side-margin);
+
+    // remove paddings:
+    &__info.section {
+      padding-right: 0;
+    }
+    &__form.section {
+      padding-left: 0;
+    }
+
+    &__info {
+      grid-area: info;
+    }
+
+    &__form {
+      grid-area: form;
+
+      &.section--grey {
+        background-color: #fff;
+      }
+
+      .small-button--contact {
+        color: $primary-grey;
+      }
+
+      label {
+        color: $primary-grey;
+      }
+      input {
+        background-color: $secondary-grey;
+      }
+
+      textarea {
+        background-color: $secondary-grey;
+      }
+    }
+  }
+}
+
+.section.contact-container__form {
+  @media (min-width: 768px) {
+    padding-right: 1rem;
+  }
+  @media (min-width: 1200px) {
+    padding-right: var(--side-margin);
   }
 }

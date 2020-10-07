@@ -38,12 +38,31 @@
     }
   }
 
+  &--about-us {
+    padding: calc(var(--side-margin) * 1.5);
+    // padding-left: calc(var(--side-margin) * 2);
+    // padding-right: calc(var(--side-margin) * 2);
+  }
+
   &__content {
     position: relative;
     padding: 3rem 0 3rem 0;
 
     p:not(:last-child) {
       margin-block-end: 1em;
+    }
+
+    p {
+      @media only screen and (min-width: 992px) {
+        margin-right: 20%;
+      }
+    }
+    &--about-us {
+      p {
+        @media only screen and (min-width: 992px) {
+          margin-right: 0;
+        }
+      }
     }
 
     &--no-heading {

@@ -32,11 +32,7 @@ const IndexPage = () => {
       }
   `);
 
-  const servicesContents = [
-    'taiyaki minim sint ex laborum food truck kinfolk farm-to-table. Banh mi health goth vinyl 8-bit whatever.',
-    'Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day.',
-    'Capitalize on low hanging fruit to identify a ballpark value added activity to beta test.',
-  ]
+
 
   return (
     <DesktopPageTransition>
@@ -60,7 +56,7 @@ const IndexPage = () => {
         <div className="section__content">
           <p>Gochujang offal pok pok bushwick disrupt VHS consequat blue bottle prism. Brooklyn shabby chic hella whatever taiyaki minim sint ex laborum food truck kinfolk farm-to-table. Banh mi health goth vinyl 8-bit whatever. Tofu ennui humblebrag subway tile gluten-free, bitters wayfarers +1 exercitation.</p>
         </div>
-        <RevealBoxes imageData={ imageData } servicesContents={ servicesContents } />
+        <RevealBoxes imageData={ imageData } />
       </section>
       <section className="section section--grey">
         <h1>Projects.</h1>

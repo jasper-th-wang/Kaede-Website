@@ -2,7 +2,6 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from 'gatsby-image';
 import SEO from "../components/seo"
-import DesktopPageTransition from '../components/desktopPageTransition';
 
 
 const ProjectsPage = () => {
@@ -31,15 +30,15 @@ const ProjectsPage = () => {
 
   return (
 
-    <DesktopPageTransition>
+    <>
       <SEO title="Projects" />
       <section className="hero">
         <Img fluid={ imageData.home1.childImageSharp.fluid } alt="Dream Home" className="hero__img" />
         <div className="hero__text">
-          <h1>Projects</h1>
+          <h1>Projects.</h1>
         </div>
       </section>
-    </DesktopPageTransition>
+    </>
 
   );
 }

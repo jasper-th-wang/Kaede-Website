@@ -1,5 +1,6 @@
 .small-button {
   // border: none;
+  cursor: pointer;
   font-size: 1.25em;
   margin: 0;
   padding: 1rem;
@@ -11,7 +12,8 @@
     text-decoration: none;
   }
 
-  &--white-text {
+  &--contact {
     color: #fff;
+    width: 100%;
   }
 }
