@@ -4,7 +4,7 @@ import MenuList from './menuList';
 import MenuListDesktop from './menuListDesktop';
 import classes from "./header.module.scss";
 import logo from '../assets/images/logo/kaede_text-white.png';
-import logoLeaf from '../assets/images/logo/kaede_logo_leaf.png';
+import logoLeaf from '../assets/images/logo/kaede_logo_leaf-white.png';
 import LeafSVG from '../assets/svgs/leaf.inline.svg';
 
 
