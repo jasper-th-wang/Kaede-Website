@@ -1,5 +1,10 @@
 .hero {
   position: relative;
+  margin-top: 4rem; //offset for the header
+  @media only screen and (min-width: 1200px) {
+    margin-top: 0; // remove offset
+  }
+
   &__img {
     height: 53vh;
     // object-fit: cover;

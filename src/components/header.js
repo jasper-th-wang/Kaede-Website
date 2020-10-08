@@ -6,9 +6,11 @@ import classes from "./header.module.scss";
 import logo from '../assets/images/logo/kaede_text-white.png';
 import logoLeaf from '../assets/images/logo/kaede_logo_leaf-white.png';
 import LeafSVG from '../assets/svgs/leaf.inline.svg';
+import ArrowSVG from '../assets/svgs/double-arrow.inline.svg';
+import { motion } from 'framer-motion';
 
 
-const Header = ({ siteTitle, location }) => {
+const Header = ({ siteTitle, location, showArrow, setShowArrow }) => {
 
   // Detect whether the screen size is over 1200px
   const [isDesktopState, setIsDesktopState] = useState(false);
@@ -60,10 +62,48 @@ const Header = ({ siteTitle, location }) => {
     setMenuListState(prevState => !prevState);
   }
 
+  const desktopHeaderAnimation = {
+    hidden: {
+      x: '-13rem',
+    },
+    onHover: {
+      x: 0,
+    },
+    transition: {
+      type: 'tween',
+      duration: 0.6,
+      ease: [0.76, 0, 0.24, 1],
+    }
+  }
+
+
+
+  const arrowVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    show: {
+      opacity: 1,
+    }
+  }
 
   return (
-    <header className={ classes.header }>
-
+    <motion.header
+      className={ classes.header }
+      variants={ desktopHeaderAnimation }
+      initial="hidden"
+      transition="transition"
+      whileHover={ isDesktopState ? "onHover" : null }
+      onHoverStart={ () => isDesktopState ? setShowArrow(false) : null }
+      onHoverEnd={ () => isDesktopState ? setShowArrow(true) : null }
+    >
+      <motion.div
+        className={ classes.arrowContainer }
+        variants={ arrowVariants }
+        animate={ showArrow ? "show" : "hidden" }
+      >
+        <ArrowSVG className={ classes.arrow } />
+      </motion.div>
       <div className={ classes.logoBox }>
         <LeafSVG className={ classes.logoBox__leaf } />
         <picture>
@@ -96,12 +136,16 @@ const Header = ({ siteTitle, location }) => {
         </button>
         {
           isDesktopState ?
-            <MenuListDesktop location={ location } /> :
+            <MenuListDesktop
+              location={ location }
+              menuClosed={ showArrow }
+              setMenuClosed={ setShowArrow }
+            /> :
             <MenuList toggled={ menuListState } toggleMenuHandler={ closeMenuList } />
         }
       </nav>
 
-    </header>
+    </motion.header>
   );
 
 }

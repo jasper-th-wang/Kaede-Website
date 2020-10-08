@@ -3,7 +3,8 @@
 .menuListDesktop {
   list-style: none;
   color: #fff;
-  text-align: center;
+  text-align: left;
+  margin-left: 2.3rem;
 
   li {
     &:not(:last-child) {
@@ -17,6 +18,10 @@
   a:active {
     text-decoration: none;
     color: currentColor;
+  }
+
+  a:hover {
+    color: $primary-red;
   }
 }
 

@@ -1,7 +1,11 @@
 @import "../assets/sass/utils/variables";
 
 .header {
-  position: relative; // menuList relies on this reference!
+  position: fixed; // menuList relies on this reference!
+  top: 0;
+  right: -13rem; // to compensate with the -13rem in desktopHeader animation
+  width: 100vw;
+  z-index: 100;
   padding: 0 var(--side-margin);
   display: flex;
   justify-content: space-between;
@@ -14,11 +18,16 @@
     padding: 0 3rem;
     top: 0;
     left: 0;
-    width: 15rem;
+    width: 15rem; //15rem
     height: 100vh;
     display: grid;
+    transform: translateX(-13rem);
+    z-index: 10000;
 
     grid-template-rows: [marginTop] 1fr [logo] 1fr [menuList] 2fr [marginBottom] 3rem;
+
+    background: rgb(48, 48, 48);
+    background: linear-gradient(59deg, rgba(48, 48, 48, 1) 23%, rgba(45, 45, 45, 1) 62%, rgba(40, 40, 40, 1) 100%);
   }
 
   nav {
@@ -30,6 +39,36 @@
       grid-area: menuList;
       margin-left: 0;
     }
+  }
+}
+
+.arrowContainer {
+  display: none;
+
+  @media only screen and (min-width: 1200px) {
+    display: block;
+    width: 48px;
+    height: 24px;
+    position: absolute;
+    top: 50%;
+    right: -16px;
+    clip-path: url(#arrow);
+
+    background: linear-gradient(90deg, #ababab 0, #ababab 30%, #ffffff 50%, #ababab 70%, #ababab 100%);
+
+    animation: slidetounlock 2s infinite;
+  }
+}
+
+@keyframes slidetounlock {
+  0% {
+    background-position: -34px 0;
+  }
+  50% {
+    background-position: -34px 0;
+  }
+  100% {
+    background-position: 18px 0;
   }
 }
 
