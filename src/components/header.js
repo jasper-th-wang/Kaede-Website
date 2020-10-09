@@ -10,7 +10,7 @@ import ArrowSVG from '../assets/svgs/double-arrow.inline.svg';
 import { motion } from 'framer-motion';
 
 
-const Header = ({ siteTitle, location, showArrow, setShowArrow }) => {
+const Header = ({ siteTitle, location, menuClosed, setMenuClosed }) => {
 
   // Detect whether the screen size is over 1200px
   const [isDesktopState, setIsDesktopState] = useState(false);
@@ -30,6 +30,11 @@ const Header = ({ siteTitle, location, showArrow, setShowArrow }) => {
     return () => isDesktop.removeEventListener('change', isDesktopCallback);
 
   }, [setIsDesktopState])
+
+  useEffect(() => {
+    // when changing display orientation, fix opened menu
+    if (!isDesktopState) setMenuClosed(true);
+  }, [isDesktopState, setMenuClosed]);
 
   // handling hamburger button and menu background animation
   const [backgroundState, setBackgroundState] = useState(false); // background
@@ -76,8 +81,6 @@ const Header = ({ siteTitle, location, showArrow, setShowArrow }) => {
     }
   }
 
-
-
   const arrowVariants = {
     hidden: {
       opacity: 0,
@@ -93,17 +96,19 @@ const Header = ({ siteTitle, location, showArrow, setShowArrow }) => {
       variants={ desktopHeaderAnimation }
       initial="hidden"
       transition="transition"
+      animate={ menuClosed ? "hidden" : "onHover" }
       whileHover={ isDesktopState ? "onHover" : null }
-      onHoverStart={ () => isDesktopState ? setShowArrow(false) : null }
-      onHoverEnd={ () => isDesktopState ? setShowArrow(true) : null }
+      onHoverStart={ () => isDesktopState ? setMenuClosed(false) : null }
+      onHoverEnd={ () => isDesktopState ? setMenuClosed(true) : null }
+      onTap={ () => isDesktopState ? setMenuClosed(false) : null }
     >
-      <motion.div
+      <motion.button
         className={ classes.arrowContainer }
         variants={ arrowVariants }
-        animate={ showArrow ? "show" : "hidden" }
+        animate={ menuClosed ? "show" : "hidden" }
       >
         <ArrowSVG className={ classes.arrow } />
-      </motion.div>
+      </motion.button>
       <div className={ classes.logoBox }>
         <LeafSVG className={ classes.logoBox__leaf } />
         <picture>
@@ -138,8 +143,8 @@ const Header = ({ siteTitle, location, showArrow, setShowArrow }) => {
           isDesktopState ?
             <MenuListDesktop
               location={ location }
-              menuClosed={ showArrow }
-              setMenuClosed={ setShowArrow }
+              menuClosed={ menuClosed }
+              setMenuClosed={ setMenuClosed }
             /> :
             <MenuList toggled={ menuListState } toggleMenuHandler={ closeMenuList } />
         }

@@ -2,6 +2,10 @@
   position: relative;
   padding: 3rem var(--side-margin) 3rem var(--side-margin);
 
+  @media only screen and (min-width: 1200px) {
+    padding: 6rem var(--side-margin) 6rem var(--side-margin);
+  }
+
   p {
     margin: 0;
   }
@@ -13,6 +17,10 @@
 
   &--intro {
     padding: 5rem var(--side-margin) 5rem var(--side-margin);
+
+    @media only screen and (min-width: 1200px) {
+      padding: 6rem var(--side-margin) 6rem var(--side-margin);
+    }
   }
 
   &--white {

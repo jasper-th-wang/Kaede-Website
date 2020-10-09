@@ -23,10 +23,12 @@ const Layout = ({ children }) => {
     initial: {
       // filter: 'brightness(1)',
       opacity: '0%',
+      display: 'none',
     },
     animate: {
       // filter: 'brightness(40%)',
       opacity: '80%',
+      display: 'block',
     }
   }
 
@@ -48,13 +50,16 @@ const Layout = ({ children }) => {
             <Header
               siteTitle={ data.site.siteMetadata.title }
               location={ location }
-              showArrow={ menuClosed }
-              setShowArrow={ setMenuClosed }
+              menuClosed={ menuClosed }
+              setMenuClosed={ setMenuClosed }
             />
           )
         }
       </Location>
-      <div className={ classes.mainArea }>
+      <motion.div
+        className={ classes.mainArea }
+        onTap={ () => setMenuClosed(true) }
+      >
         <motion.div
           className={ classes.overlay }
           variants={ overlayVariants }
@@ -71,7 +76,7 @@ const Layout = ({ children }) => {
           { children }
         </motion.main>
         <footer>Copyright &#169; 2020 Kaede Construction Ltd. All rights reserved.</footer>
-      </div>
+      </motion.div>
     </div>
   )
 }

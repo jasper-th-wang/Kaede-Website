@@ -49,7 +49,10 @@ const MenuListDesktop = ({ location, menuClosed, setMenuClosed }) => {
           key={ item[0] }
           className={ location.pathname === `/${ item[1] }` ? classes.currentPage : null }
         >
-          <Link to={ `/${ item[1] }` } >{ item[0] }</Link>
+          <Link
+            to={ `/${ item[1] }` }
+          // onClick={ () => setMenuClosed(true) }
+          >{ item[0] }</Link>
         </motion.li>
       )) }
     </motion.ul>
