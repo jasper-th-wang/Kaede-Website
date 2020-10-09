@@ -4,6 +4,7 @@ import classes from './menuListDesktop.module.scss';
 // import DelayedLink from './delayedLink';
 import { Link } from 'gatsby';
 import { motion } from 'framer-motion';
+import useScrollLock from '../hooks/useScrollLock';
 
 
 const menuItems = [['Home', ''], ['Services', 'services'], ['Projects', 'projects'], ['About us', 'about-us'], ['Contact us', 'contact-us']];
@@ -36,12 +37,15 @@ const MenuListDesktop = ({ location, menuClosed, setMenuClosed }) => {
     }
   }
 
+  const scrollLockTarget = useScrollLock(!menuClosed);
+
   return (
     <motion.ul
       variants={ parentVariants }
       initial="hidden"
       animate={ menuClosed ? "hidden" : "visible" }
       className={ classes.menuListDesktop }
+      ref={ scrollLockTarget }
     >
       {menuItems.map((item, index) => (
         <motion.li

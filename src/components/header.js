@@ -41,6 +41,7 @@ const Header = ({ siteTitle, location, menuClosed, setMenuClosed }) => {
   const [menuListState, setMenuListState] = useState(false); // menuList, for delay animation 
   const [disableHamburgerBtn, setDisableHamburgerBtn] = useState(false);
 
+  // close mobile menu background when page load
   useEffect(() => {
     console.log(location.action);
     if (location.action === 'PUSH') {

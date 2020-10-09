@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { motion } from 'framer-motion';
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+// import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import useScrollLock from '../hooks/useScrollLock';
 
 import classes from './menuList.module.scss';
 import DelayedLink from '../components/delayedLink';
@@ -10,16 +11,7 @@ const MenuList = ({ toggled, toggleMenuHandler }) => {
   // item that is an array contains the name of the page and the camel case of it for Link
   const menuItems = [['Home', ''], ['Services', 'services'], ['Projects', 'projects'], ['About us', 'about-us'], ['Contact us', 'contact-us']];
 
-  const scrollLockTarget = useRef(null);
-
-  useEffect(() => {
-    console.log(scrollLockTarget.current);
-    toggled ? disableBodyScroll(scrollLockTarget.current) : enableBodyScroll(scrollLockTarget.current);
-
-    return () => {
-      clearAllBodyScrollLocks();
-    }
-  }, [toggled, scrollLockTarget]);
+  const scrollLockTarget = useScrollLock(toggled);
 
   const parentVariants = {
     hidden: {},
